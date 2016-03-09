@@ -1,1 +1,2 @@
 /src/*/packages/*
+/src/VehicleInspectionReminder/VehicleInspectionReminder.Web/App_Data/ElmahXML_Logs/*
