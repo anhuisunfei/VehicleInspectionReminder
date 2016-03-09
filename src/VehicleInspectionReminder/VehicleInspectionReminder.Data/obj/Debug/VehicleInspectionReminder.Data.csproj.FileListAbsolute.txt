@@ -1,0 +1,16 @@
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.csprojResolveAssemblyReference.cache
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Data.dll.config
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Data.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Data.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.SqlServer.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Model.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Model.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.xml
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.SqlServer.xml
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\zh-Hans\EntityFramework.resources.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.Migrations.InitialCreate.resources
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.csproj.GenerateResource.Cache

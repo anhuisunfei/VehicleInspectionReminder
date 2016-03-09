@@ -1,0 +1,12 @@
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\VehicleInspectionReminder.Service.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\VehicleInspectionReminder.Service.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\obj\Debug\VehicleInspectionReminder.Service.csprojResolveAssemblyReference.cache
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\obj\Debug\VehicleInspectionReminder.Service.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\obj\Debug\VehicleInspectionReminder.Service.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\VehicleInspectionReminder.Data.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\VehicleInspectionReminder.Model.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\EntityFramework.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\VehicleInspectionReminder.Data.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\VehicleInspectionReminder.Model.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\EntityFramework.xml
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\zh-Hans\EntityFramework.resources.dll
