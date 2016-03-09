@@ -25,18 +25,20 @@ namespace VehicleInspectionReminder.Web.Controllers
 	        _userService = userService;
 	        var data = _userService.Get(1);
 			UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+			RoleManager = new RoleManager<AppRole>(new RoleStore<AppRole>(new ApplicationDbContext()));
         }
 
 		
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
-
+		public RoleManager<AppRole> RoleManager { get; private set; }
         //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
+			UserManager.AddToRole("e41da2ff-3c12-4c0d-b3b0-8b03581e08ad", "CarOwner");
             return View();
         }
 

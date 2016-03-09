@@ -86,3 +86,6 @@ F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Elmah.Mvc.dll
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.InitialCreateUser.resources
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.csproj.GenerateResource.Cache
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.AddUserRole.resources
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.AddUserRole1.resources
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.AddUser.resources

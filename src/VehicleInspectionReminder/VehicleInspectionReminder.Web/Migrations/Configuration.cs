@@ -1,4 +1,5 @@
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using VehicleInspectionReminder.Web.Models;
 
 namespace VehicleInspectionReminder.Web.Migrations
@@ -36,8 +37,21 @@ namespace VehicleInspectionReminder.Web.Migrations
 				{
 					UserName = "sunf",
 					PasswordHash = password,
-					Email = "anhuisunfei@gmail.com" 
+					Email = "anhuisunfei@gmail.com"
+				},new ApplicationUser
+				{
+					UserName="baiy",
+					PasswordHash = password,
+					Email = "baiy@gmail.com" 
 				});
+			context.Roles.AddOrUpdate(r => r.Name, new AppRole
+			{
+				Name = "Admin" // 管理员
+			},new AppRole
+			{
+				Name="CarOwner" // 车主
+			});
+			
 		}
 	}
 }

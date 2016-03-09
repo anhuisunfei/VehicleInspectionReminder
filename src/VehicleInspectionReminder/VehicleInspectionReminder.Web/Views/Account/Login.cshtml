@@ -79,16 +79,18 @@
                                                     </span>
                                                     @Html.ValidationMessageFor(m => m.Password)
                                                 </label>
-                                                <label class="block">
-                                                    @Html.CheckBoxFor(m => m.RememberMe, new { @class = "ace" }) 
-                                                    <span class="lbl">
-                                                        I accept the
-                                                        <a href="#">User Agreement</a>
-                                                    </span>
-                                                </label>
+                                               
 
                                                 <div class="space"></div>
                                                 <div class="clearfix">
+                                                    <label class="inline">
+                                                        @*@Html.CheckBoxFor(m => m.RememberMe, new { @class = "ace" })*@
+                                                        <input type="checkbox" name="RememberMe" class="ace" />
+
+                                                        <span class="lbl">
+                                                            记住我？
+                                                        </span>
+                                                    </label>
                                                     <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
                                                         <i class="ace-icon fa fa-key"></i>
                                                         <span class="bigger-110">登录</span>
