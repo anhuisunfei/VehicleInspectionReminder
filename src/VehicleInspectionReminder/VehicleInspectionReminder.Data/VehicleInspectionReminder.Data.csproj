@@ -59,10 +59,15 @@
     <Compile Include="Infrastructure\MyDbContext.cs" />
     <Compile Include="Infrastructure\PagedList.cs" />
     <Compile Include="Infrastructure\UnitOfWork.cs" />
+    <Compile Include="Mapping\BrandMapping.cs" />
+    <Compile Include="Mapping\IllegalTypeMapping.cs" />
+    <Compile Include="Mapping\OwnerInfoMapping.cs" />
     <Compile Include="Mapping\UserMapping.cs" />
-    <Compile Include="Migrations\201603090607557_InitialCreate.cs" />
-    <Compile Include="Migrations\201603090607557_InitialCreate.Designer.cs">
-      <DependentUpon>201603090607557_InitialCreate.cs</DependentUpon>
+    <Compile Include="Mapping\VehicleInfoMapping.cs" />
+    <Compile Include="Mapping\VehicleTypeMapping.cs" />
+    <Compile Include="Migrations\201603160834034_FirstCreateDatabase.cs" />
+    <Compile Include="Migrations\201603160834034_FirstCreateDatabase.Designer.cs">
+      <DependentUpon>201603160834034_FirstCreateDatabase.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,15 +78,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201603090607557_InitialCreate.resx">
-      <DependentUpon>201603090607557_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\VehicleInspectionReminder.Model\VehicleInspectionReminder.Model.csproj">
       <Project>{0fb6068c-7806-4e8c-a0ce-d77006b93c43}</Project>
       <Name>VehicleInspectionReminder.Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201603160834034_FirstCreateDatabase.resx">
+      <DependentUpon>201603160834034_FirstCreateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
