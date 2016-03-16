@@ -1,5 +1,35 @@
-﻿@{
+﻿@using System.Collections
+@using VehicleInspectionReminder.Model
+@using WebGrease.Css.Extensions
+@{
     ViewBag.Title = "Home Page";
+    IEnumerable<Brand> brandList = ViewBag.BrandList as IEnumerable<Brand>;
 }
 
- 
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>BrandName</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @{
+                    if (brandList != null)
+                    {
+                        foreach (var item in brandList)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.BrandName</td>
+                        </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
