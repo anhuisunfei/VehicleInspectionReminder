@@ -19,3 +19,14 @@ E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.csproj.GenerateResource.Cache
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.dll
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.pdb
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Data.dll.config
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Data.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Data.pdb
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.SqlServer.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Model.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\VehicleInspectionReminder.Model.pdb
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.xml
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\EntityFramework.SqlServer.xml
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll

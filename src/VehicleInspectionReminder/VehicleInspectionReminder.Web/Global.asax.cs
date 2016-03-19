@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -6,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using VehicleInspectionReminder.Web.App_Start;
+using VehicleInspectionReminder.Web.Models;
 
 namespace VehicleInspectionReminder.Web
 {
@@ -18,7 +21,10 @@ namespace VehicleInspectionReminder.Web
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-			Bootstarpper.Run();
+            Bootstarpper.Run();
+
         }
+
+       
     }
 }
