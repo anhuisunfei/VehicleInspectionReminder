@@ -10,3 +10,6 @@ F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\VehicleInspectionReminder.Model.pdb
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\EntityFramework.xml
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\bin\Debug\zh-Hans\EntityFramework.resources.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\obj\Debug\VehicleInspectionReminder.Service.csprojResolveAssemblyReference.cache
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\obj\Debug\VehicleInspectionReminder.Service.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\obj\Debug\VehicleInspectionReminder.Service.pdb

@@ -14,3 +14,8 @@ F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.Migrations.FirstCreateDatabase.resources
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.csproj.GenerateResource.Cache
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.csprojResolveAssemblyReference.cache
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.Migrations.FirstCreateDatabase.resources
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.csproj.GenerateResource.Cache
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.pdb
