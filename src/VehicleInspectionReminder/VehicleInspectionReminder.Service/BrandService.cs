@@ -24,6 +24,10 @@ namespace VehicleInspectionReminder.Service
 
         public void AddBrand(Brand model)
         {
+            if (_brandRepository.GetManay(p => p.BrandName == model.BrandName).Any())
+            {
+                throw new ArgumentException("品牌已存在");
+            }
             _brandRepository.Insert(model);
             _unitofwork.Commit();
         }
@@ -32,6 +36,13 @@ namespace VehicleInspectionReminder.Service
         {
             return _brandRepository.GetAll();
         }
+
+        public void Delete(int id)
+        {
+            var entity = _brandRepository.GetById(id);
+            _brandRepository.Delete(entity);
+            _unitofwork.Commit();
+        }
     }
 
     public interface IBrandService
@@ -39,5 +50,7 @@ namespace VehicleInspectionReminder.Service
         void AddBrand(Brand model);
 
         IEnumerable<Brand> GetAll();
+
+        void Delete(int id);
     }
 }
