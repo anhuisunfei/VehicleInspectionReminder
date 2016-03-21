@@ -12,6 +12,10 @@ namespace VehicleInspectionReminder.Model
 	public class OwnerInfo : BaseEntity
 	{
 		/// <summary>
+		/// Identity 对应用户ID
+		/// </summary>
+		public Guid AspNetUserId { get; set; }
+		/// <summary>
 		/// 驾驶证编号
 		/// </summary>
 		public string LicenseNum { get; set; }

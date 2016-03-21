@@ -84,11 +84,7 @@ F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Autofac.Integration.Mvc.xml
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Elmah.dll
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Elmah.Mvc.dll
-F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.InitialCreateUser.resources
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.csproj.GenerateResource.Cache
-F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.AddUserRole.resources
-F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.AddUserRole1.resources
-F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.AddUser.resources
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\VehicleInspectionReminder.Web.dll.config
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\VehicleInspectionReminder.Web.dll
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\VehicleInspectionReminder.Web.pdb
@@ -177,3 +173,13 @@ E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\zh-Hans\EntityFramework.SqlServer.resources.dll
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.InitialIdentity.resources
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.csproj.GenerateResource.Cache
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\obj\Debug\VehicleInspectionReminder.Web.Migrations.InitialIdentity.resources
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.Core.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.xml
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.Core.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.Core.xml
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.pdb
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.xml

@@ -69,9 +69,18 @@
     <Compile Include="Migrations\201603160834034_FirstCreateDatabase.Designer.cs">
       <DependentUpon>201603160834034_FirstCreateDatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603210823475_update Owner info .cs" />
+    <Compile Include="Migrations\201603210823475_update Owner info .Designer.cs">
+      <DependentUpon>201603210823475_update Owner info .cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603210825256_update id generater .cs" />
+    <Compile Include="Migrations\201603210825256_update id generater .Designer.cs">
+      <DependentUpon>201603210825256_update id generater .cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BrandRepository.cs" />
+    <Compile Include="Repository\OwnerInfoRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +96,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201603160834034_FirstCreateDatabase.resx">
       <DependentUpon>201603160834034_FirstCreateDatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603210823475_update Owner info .resx">
+      <DependentUpon>201603210823475_update Owner info .cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603210825256_update id generater .resx">
+      <DependentUpon>201603210825256_update id generater .cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

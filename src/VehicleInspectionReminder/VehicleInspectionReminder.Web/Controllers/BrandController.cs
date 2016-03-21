@@ -17,7 +17,7 @@ namespace VehicleInspectionReminder.Web.Controllers
         {
             _brandService = brandService;
         }
-
+		[Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var _list = _brandService.GetAll();

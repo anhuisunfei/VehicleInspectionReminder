@@ -19,7 +19,7 @@ namespace VehicleInspectionReminder.Web.Controllers
 			_brandService = brandService;
 		}
 
-		// [Authorize(Roles = "Admin")]
+		[Authorize]
 		public ActionResult Index()
 		{
 			//_brandService.AddBrand(new Brand()
