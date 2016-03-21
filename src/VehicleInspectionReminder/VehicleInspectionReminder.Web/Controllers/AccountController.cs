@@ -17,28 +17,28 @@ namespace VehicleInspectionReminder.Web.Controllers
     public class AccountController : Controller
     {
 
-	    private IUserService _userService;
-        
+        private IUserService _userService;
+
 
         public AccountController(IUserService userService)
         {
-	        _userService = userService;
-	        var data = _userService.Get(1);
-			UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
-			RoleManager = new RoleManager<AppRole>(new RoleStore<AppRole>(new ApplicationDbContext()));
+            _userService = userService;
+            var data = _userService.Get(1);
+            UserManager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext()));
+            RoleManager = new RoleManager<AppRole>(new RoleStore<AppRole>(new ApplicationDbContext()));
         }
 
-		
+
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
-		public RoleManager<AppRole> RoleManager { get; private set; }
+        public RoleManager<AppRole> RoleManager { get; private set; }
         //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
             ViewBag.ReturnUrl = returnUrl;
-			UserManager.AddToRole("e41da2ff-3c12-4c0d-b3b0-8b03581e08ad", "CarOwner");
+            // UserManager.AddToRole("e41da2ff-3c12-4c0d-b3b0-8b03581e08ad", "CarOwner");
             return View();
         }
 
@@ -54,6 +54,7 @@ namespace VehicleInspectionReminder.Web.Controllers
                 var user = await UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
+                    UserManager.AddToRoles(user.Id, "Admin", "CarOwner");
                     await SignInAsync(user, model.RememberMe);
                     return RedirectToLocal(returnUrl);
                 }
@@ -73,6 +74,28 @@ namespace VehicleInspectionReminder.Web.Controllers
         public ActionResult Register()
         {
             return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult AjaxResiter(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = new ApplicationUser
+                {
+                    UserName = model.UserName,
+                    Email = model.Email
+                };
+                var result = UserManager.Create(user, model.Password);
+                if (result.Succeeded)
+                {
+                    UserManager.AddToRoles(user.Id, "CarOwner");
+                    return Json(1); // 注册成功
+                }
+                return Json(0); // 注册失败
+            }
+            return Json(-1);
         }
 
         //
@@ -384,7 +407,8 @@ namespace VehicleInspectionReminder.Web.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 

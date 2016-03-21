@@ -55,6 +55,11 @@ namespace VehicleInspectionReminder.Web.Models
         [Display(Name = "密码")]
         public string Password { get; set; }
 
+        [Required]
+        [Display(Name="邮箱")]
+        [DataType(DataType.EmailAddress)]
+        public string Email { get; set; }
+
         [DataType(DataType.Password)]
         [Display(Name = "确认密码")]
         [Compare("Password", ErrorMessage = "密码和确认密码不匹配。")]
