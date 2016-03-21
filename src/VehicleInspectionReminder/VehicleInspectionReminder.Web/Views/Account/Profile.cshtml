@@ -1,0 +1,129 @@
+﻿@using Microsoft.AspNet.Identity
+@using VehicleInspectionReminder.Model
+@model VehicleInspectionReminder.Model.OwnerInfo
+@{
+    ViewBag.Title = "我的信息";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form class="form-horizontal" method="POST" action="@Url.Action("Profile")">
+    <div class="tabbable">
+        <ul class="nav nav-tabs padding-16">
+            <li class="active">
+                <a data-toggle="tab" href="#edit-basic">
+                    <i class="green ace-icon fa fa-pencil-square-o bigger-125"></i>
+                    基本信息
+                </a>
+            </li>
+        </ul>
+
+        <div class="tab-content profile-edit-tab-content">
+            <div id="edit-basic" class="tab-pane in active">
+                @if (!string.IsNullOrEmpty(ViewBag.Message as String))
+                {
+                    <div class="alert alert-success">
+                        <button type="button" class="close" data-dismiss="alert">
+                            <i class="ace-icon fa fa-times"></i>
+                        </button>
+
+                        <strong>
+                            <i class="ace-icon fa fa-check"></i>
+                            修改成功
+                        </strong>
+                        <br>
+                    </div>
+                }
+                <h4 class="header blue bolder smaller">General</h4>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="txtUserName">客户名称</label>
+                    <input type="hidden" name="Id" value="@(Model == null ? 0 : Model.Id)" />
+                    <input type="hidden" value="@(Model==null?Guid.Empty:Model.AspNetUserId)" name="AspNetUserId" />
+                    <div class="col-sm-9">
+                        <input type="text" id="txtUserName" name="UserName" value="@(Model == null ? string.Empty : Model.UserName)" required="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="txtBirthDay">生日</label>
+
+                    <div class="col-sm-9">
+                        <input class="input-medium date-picker" name="BirthDay" value="@(Model == null ? string.Empty : (Model.BirthDay.HasValue ? Model.BirthDay.Value.ToString("yyyy-MM-dd") : String.Empty))" id="txtBirthDay" type="text" placeholder="yyyy-mm-dd" required="">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right">性别</label>
+
+                    <div class="col-sm-9">
+                        <label class="inline">
+                            <input required name="Gender" @(Model == null ? "" : Model.Gender == Gender.Male ? "checked" : "") value="0" type="radio" class="ace">
+                            <span class="lbl middle"> 男</span>
+                        </label>
+
+                        &nbsp; &nbsp; &nbsp;
+                        <label class="inline">
+                            <input name="Gender" type="radio" @(Model == null ? "" : Model.Gender == Gender.Female ? "checked" : "") value="1" class="ace">
+                            <span class="lbl middle"> 女</span>
+                        </label>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-email">邮箱</label>
+
+                    <div class="col-sm-9">
+                        <span class="input-icon input-icon-right">
+                            <input id="txtEmail" name="Email" type="email" value="@(Model == null ? string.Empty : Model.Email)" required="">
+                            <i class="ace-icon fa fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="space-4"></div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label no-padding-right" for="form-field-website">驾驶证</label>
+
+                    <div class="col-sm-9">
+                        <span class="input-icon input-icon-right">
+                            <input type="text" id="txtLicenseNum" name="LicenseNum" value="@(Model == null ? string.Empty : Model.LicenseNum)" required="">
+                            <i class="ace-icon fa fa-globe"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="clearfix form-actions">
+        <div class="col-md-offset-3 col-md-9">
+            <button class="btn btn-info" type="submit">
+                <i class="ace-icon fa fa-check bigger-110"></i>
+                保存
+            </button>
+
+            &nbsp; &nbsp;
+            <button class="btn" type="reset">
+                <i class="ace-icon fa fa-undo bigger-110"></i>
+                撤销
+            </button>
+        </div>
+    </div>
+</form>
+
+@section tailScript{
+    <script>
+        $(function () {
+            $('#txtBirthDay').datepicker({
+                autoclose: true,
+                todayHighlight: true,
+                format: 'yyyy-mm-dd'
+            })
+                .next().on(ace.click_event, function () {
+                    $(this).prev().focus();
+                });
+        });
+    </script>
+}
