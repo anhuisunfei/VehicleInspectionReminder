@@ -92,11 +92,12 @@ namespace VehicleInspectionReminder.Web.Controllers
 				var result = UserManager.Create(user, model.Password);
 				if (result.Succeeded)
 				{
-					UserManager.AddToRoles(user.Id, "CarOwner");
+					UserManager.AddToRoles(user.Id, model.Roles);
 					_ownerInfoService.AddOwnerInfo(new OwnerInfo()
 					{
 						UserName = user.UserName,
-						Email = user.Email
+						Email = user.Email,
+						AspNetUserId = new Guid(user.Id)
 					});
 					return Json(1); // 注册成功
 				}
@@ -112,11 +113,13 @@ namespace VehicleInspectionReminder.Web.Controllers
 			if (model == null)
 			{
 				string email = UserManager.GetEmail(User.Identity.GetUserId());
+
+				var user = UserManager.FindById(User.Identity.GetUserId());
 				model = new OwnerInfo()
 				{
-					Email = email,
+					Email = user.Email,
 					UserName = User.Identity.Name,
-					AspNetUserId =new Guid(User.Identity.GetUserId())
+					AspNetUserId = new Guid(User.Identity.GetUserId())
 				};
 			}
 			return View(model);

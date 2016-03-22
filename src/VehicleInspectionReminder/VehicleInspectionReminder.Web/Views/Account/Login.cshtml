@@ -63,8 +63,8 @@
                                             <fieldset>
                                                 <label class="block clearfix">
                                                     <span class="block input-icon input-icon-right">
-                                                        @Html.TextBoxFor(m => m.UserName, new {@class = "form-control", placeholder = "用户名"})
-                                                       
+                                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control", placeholder = "用户名" })
+
                                                         <i class="ace-icon fa fa-user"></i>
                                                     </span>
                                                     @Html.ValidationMessageFor(m => m.UserName)
@@ -79,7 +79,7 @@
                                                     </span>
                                                     @Html.ValidationMessageFor(m => m.Password)
                                                 </label>
-                                               
+
 
                                                 <div class="space"></div>
                                                 <div class="clearfix">
@@ -88,7 +88,7 @@
                                                         <input type="checkbox" name="RememberMe" class="ace" />
 
                                                         <span class="lbl">
-                                                            记住我？ 
+                                                            记住我？
                                                         </span>
                                                     </label>
                                                     <button type="submit" class="width-35 pull-right btn btn-sm btn-primary">
@@ -150,7 +150,17 @@
 
                                                 <label class="block clearfix">
                                                     <span class="block input-icon input-icon-right">
-                                                        <input type="password" id="txtRegisterPwd" pattern=".{6,}" required title="密码必须为6位字符"  class="form-control" placeholder="密码" />
+                                                        <select class="form-control" id="selRoles">
+<option value="CarOwner">车主</option>
+                                                            <option value="CarCheck">车检负责人</option>
+                                                            <option value="TrafficPolice">交警</option>
+</select>
+                                                    </span>
+                                                </label>
+
+                                                <label class="block clearfix">
+                                                    <span class="block input-icon input-icon-right">
+                                                        <input type="password" id="txtRegisterPwd" pattern=".{6,}" required title="密码必须为6位字符" class="form-control" placeholder="密码" />
                                                         <i class="ace-icon fa fa-lock"></i>
                                                     </span>
                                                 </label>
@@ -227,15 +237,17 @@
                 input.setCustomValidity('');
             }
         }
-        $(function () {
-            $("#formRegister").submit(function () {
+
+        $(function() {
+            $("#formRegister").submit(function() {
                 var model = {
                     UserName: $("#txtRegisterUName").val(),
                     Email: $("#txtRegisterEmail").val(),
                     PassWord: $("#txtRegisterPwd").val(),
-                    ConfirmPassword: $("#txtConfirmPassword").val()
+                    ConfirmPassword: $("#txtConfirmPassword").val(),
+                    Roles: $('#selRoles').val()
                 };
-                $.post('@Url.Action("AjaxResiter")', model, function (ret) {
+                $.post('@Url.Action("AjaxResiter")', model, function(ret) {
                     if (ret == 1) {
                         alert('注册成功！请登录');
                         window.location.reload();
@@ -243,8 +255,8 @@
                         alert('注册失败，请检查输入');
                     }
                 });
-            })
-        })
+            });
+        });
         //you don't need this, just used for changing background
         jQuery(function ($) {
             $('#btn-login-dark').on('click', function (e) {

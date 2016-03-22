@@ -56,6 +56,12 @@ namespace VehicleInspectionReminder.Web.Migrations
             }, new AppRole
             {
                 Name = "CarOwner" // 车主
+            },new AppRole
+            {
+				Name = "CarCheck" // 车检负责人
+            },new AppRole
+            {
+				Name = "TrafficPolice" // 交警
             });
 
 
