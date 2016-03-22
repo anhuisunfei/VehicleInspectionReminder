@@ -82,6 +82,7 @@
     <Compile Include="Repository\BrandRepository.cs" />
     <Compile Include="Repository\OwnerInfoRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\VehicleTypeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
