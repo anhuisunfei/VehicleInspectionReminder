@@ -1,0 +1,197 @@
+﻿<error errorId="13544fc2-8e19-4dd1-8fc3-f12aaf32fe5a" application="/LM/W3SVC/47/ROOT" host="SUNF" type="System.ArgumentException" message="品牌已存在" source="VehicleInspectionReminder.Service" detail="System.ArgumentException: 品牌已存在&#xD;&#xA;   在 VehicleInspectionReminder.Service.BrandService.AddBrand(Brand model) 位置 f:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Service\BrandService.cs:行号 29&#xD;&#xA;   在 VehicleInspectionReminder.Web.Controllers.BrandController.AddBrand(String name) 位置 f:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\Controllers\BrandController.cs:行号 41&#xD;&#xA;   在 lambda_method(Closure , ControllerBase , Object[] )&#xD;&#xA;   在 System.Web.Mvc.ActionMethodDispatcher.Execute(ControllerBase controller, Object[] parameters)&#xD;&#xA;   在 System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)&#xD;&#xA;   在 System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;BeginInvokeSynchronousActionMethod&gt;b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__3f()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.&lt;&gt;c__DisplayClass48.&lt;InvokeActionMethodFilterAsynchronouslyRecursive&gt;b__41()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass33.&lt;BeginInvokeActionMethodWithFilters&gt;b__32(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;&gt;c__DisplayClass2b.&lt;BeginInvokeAction&gt;b__1c()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.&lt;&gt;c__DisplayClass21.&lt;BeginInvokeAction&gt;b__1e(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Controller.&lt;BeginExecuteCore&gt;b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Controller.&lt;BeginExecute&gt;b__15(IAsyncResult asyncResult, Controller controller)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.MvcHandler.&lt;BeginProcessRequest&gt;b__5(IAsyncResult asyncResult, ProcessRequestState innerState)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()&#xD;&#xA;   在 System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)&#xD;&#xA;   在 System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)&#xD;&#xA;   在 System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()&#xD;&#xA;   在 System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean&amp; completedSynchronously)" user="sunf" time="2016-03-21T06:28:25.5105794Z">
+  <serverVariables>
+    <item name="ALL_HTTP">
+      <value string="HTTP_CACHE_CONTROL:max-age=0&#xD;&#xA;HTTP_CONNECTION:keep-alive&#xD;&#xA;HTTP_CONTENT_LENGTH:41&#xD;&#xA;HTTP_CONTENT_TYPE:application/x-www-form-urlencoded&#xD;&#xA;HTTP_ACCEPT:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;HTTP_ACCEPT_ENCODING:gzip, deflate&#xD;&#xA;HTTP_ACCEPT_LANGUAGE:zh-CN,zh;q=0.8&#xD;&#xA;HTTP_COOKIE:_ga=GA1.1.1017900808.1453800464; uaactoken=0BE808CDCA943F340A6CE74A998C80D8A1E60DFB67F6DCABB152D291FAC007D0BC86CECCD6934610CD9610FC7C7A70B73F842FB6F4672C13FB03D63A8F45D01C7B9DB488709C8596ACCEDA54D6AECF8A6974D7DE227A3BD631EF09CB8DD0FC52C1ED7D97FDCA95D9FC1CE56946B1FB20452892DC618F34E5C3474FA79B81D99F015765320CD147A7FB7E10C1285AD789; .itms=DEBE7990AB89733A74F6AC7FF65D4544FB8C8762CE37D8A981971F0DE0F71B55197F87A1E0ECC4F353FD357A2AE45CE18F02C964A8E80B75B826EF3663A6FA391C92A4E0BAE20426C64DB7CAD2604045E860A2E626423ADE6684D72955B5186A; ASP.NET_SessionId=ueji143exava42zfntlu0pj4; __RequestVerificationToken=Sjumj7gnz3D7RzW0_d2hQpg6oZZa8J_lsKWWaSdyE7zqzJ3B3yQsVeUAJlx5XvQwVW5XU-IYPjqQnZtL23w_uRGObyLFiaCWXeTSVBH9wnU1; .AspNet.ApplicationCookie=i4Zewle1REvePI6Z9wvjdwf5SZ0NWW4K7nE0oB6rFLzFSZ1X0CAN9fBoMVWsY_i_W6EcKJnKcYo73sJ8C22dEHBhCkjoKMbnQthcMpDPnTMPuxeuorD6J2nFVIHXaDm4150YRa3LEMlCvVhfQbQBItV_yxvoIRqlz8nT21b1dyiWnrw_cF6KdAuHEjs464WGAbVvBRkiBV5RhnpxQEOBKeB5FJIt9WVzY_-lrxQKmwhkV40Lrvm8Rn-6FHmvv6FNvhsM43isSUOljm1gE6PkoxsZEYn06t9ygXJJU3Ejhokd_mukt9PA5xCG8YWxL615A9kQ3HD8UslRVZEi3MiICxwZaAll1IcP1NC4dBsC3QfsdGy9IDhoHOK1LUpIEo8Bo4JYBf3IORfVFSOwSULUXsN2J5nS0a7aeID9swhXMx82q1NJ7qYUl1YOfhrMQQgyBGknf83_OZtc9jXwmFjDncnl1fRCyZ-f-Of8LfiRYDo&#xD;&#xA;HTTP_HOST:localhost:54631&#xD;&#xA;HTTP_REFERER:http://localhost:54631/Brand&#xD;&#xA;HTTP_USER_AGENT:Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36&#xD;&#xA;HTTP_ORIGIN:http://localhost:54631&#xD;&#xA;HTTP_UPGRADE_INSECURE_REQUESTS:1&#xD;&#xA;" />
+    </item>
+    <item name="ALL_RAW">
+      <value string="Cache-Control: max-age=0&#xD;&#xA;Connection: keep-alive&#xD;&#xA;Content-Length: 41&#xD;&#xA;Content-Type: application/x-www-form-urlencoded&#xD;&#xA;Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8&#xD;&#xA;Accept-Encoding: gzip, deflate&#xD;&#xA;Accept-Language: zh-CN,zh;q=0.8&#xD;&#xA;Cookie: _ga=GA1.1.1017900808.1453800464; uaactoken=0BE808CDCA943F340A6CE74A998C80D8A1E60DFB67F6DCABB152D291FAC007D0BC86CECCD6934610CD9610FC7C7A70B73F842FB6F4672C13FB03D63A8F45D01C7B9DB488709C8596ACCEDA54D6AECF8A6974D7DE227A3BD631EF09CB8DD0FC52C1ED7D97FDCA95D9FC1CE56946B1FB20452892DC618F34E5C3474FA79B81D99F015765320CD147A7FB7E10C1285AD789; .itms=DEBE7990AB89733A74F6AC7FF65D4544FB8C8762CE37D8A981971F0DE0F71B55197F87A1E0ECC4F353FD357A2AE45CE18F02C964A8E80B75B826EF3663A6FA391C92A4E0BAE20426C64DB7CAD2604045E860A2E626423ADE6684D72955B5186A; ASP.NET_SessionId=ueji143exava42zfntlu0pj4; __RequestVerificationToken=Sjumj7gnz3D7RzW0_d2hQpg6oZZa8J_lsKWWaSdyE7zqzJ3B3yQsVeUAJlx5XvQwVW5XU-IYPjqQnZtL23w_uRGObyLFiaCWXeTSVBH9wnU1; .AspNet.ApplicationCookie=i4Zewle1REvePI6Z9wvjdwf5SZ0NWW4K7nE0oB6rFLzFSZ1X0CAN9fBoMVWsY_i_W6EcKJnKcYo73sJ8C22dEHBhCkjoKMbnQthcMpDPnTMPuxeuorD6J2nFVIHXaDm4150YRa3LEMlCvVhfQbQBItV_yxvoIRqlz8nT21b1dyiWnrw_cF6KdAuHEjs464WGAbVvBRkiBV5RhnpxQEOBKeB5FJIt9WVzY_-lrxQKmwhkV40Lrvm8Rn-6FHmvv6FNvhsM43isSUOljm1gE6PkoxsZEYn06t9ygXJJU3Ejhokd_mukt9PA5xCG8YWxL615A9kQ3HD8UslRVZEi3MiICxwZaAll1IcP1NC4dBsC3QfsdGy9IDhoHOK1LUpIEo8Bo4JYBf3IORfVFSOwSULUXsN2J5nS0a7aeID9swhXMx82q1NJ7qYUl1YOfhrMQQgyBGknf83_OZtc9jXwmFjDncnl1fRCyZ-f-Of8LfiRYDo&#xD;&#xA;Host: localhost:54631&#xD;&#xA;Referer: http://localhost:54631/Brand&#xD;&#xA;User-Agent: Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36&#xD;&#xA;Origin: http://localhost:54631&#xD;&#xA;Upgrade-Insecure-Requests: 1&#xD;&#xA;" />
+    </item>
+    <item name="APPL_MD_PATH">
+      <value string="/LM/W3SVC/47/ROOT" />
+    </item>
+    <item name="APPL_PHYSICAL_PATH">
+      <value string="F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\" />
+    </item>
+    <item name="AUTH_TYPE">
+      <value string="ApplicationCookie" />
+    </item>
+    <item name="AUTH_USER">
+      <value string="sunf" />
+    </item>
+    <item name="AUTH_PASSWORD">
+      <value string="*****" />
+    </item>
+    <item name="LOGON_USER">
+      <value string="sunf" />
+    </item>
+    <item name="REMOTE_USER">
+      <value string="sunf" />
+    </item>
+    <item name="CERT_COOKIE">
+      <value string="" />
+    </item>
+    <item name="CERT_FLAGS">
+      <value string="" />
+    </item>
+    <item name="CERT_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="CERT_SERIALNUMBER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="CERT_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CERT_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="CONTENT_LENGTH">
+      <value string="41" />
+    </item>
+    <item name="CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded" />
+    </item>
+    <item name="GATEWAY_INTERFACE">
+      <value string="CGI/1.1" />
+    </item>
+    <item name="HTTPS">
+      <value string="off" />
+    </item>
+    <item name="HTTPS_KEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SECRETKEYSIZE">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_ISSUER">
+      <value string="" />
+    </item>
+    <item name="HTTPS_SERVER_SUBJECT">
+      <value string="" />
+    </item>
+    <item name="INSTANCE_ID">
+      <value string="47" />
+    </item>
+    <item name="INSTANCE_META_PATH">
+      <value string="/LM/W3SVC/47" />
+    </item>
+    <item name="LOCAL_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="PATH_INFO">
+      <value string="/Brand/AddBrand" />
+    </item>
+    <item name="PATH_TRANSLATED">
+      <value string="F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\Brand\AddBrand" />
+    </item>
+    <item name="QUERY_STRING">
+      <value string="" />
+    </item>
+    <item name="REMOTE_ADDR">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_HOST">
+      <value string="::1" />
+    </item>
+    <item name="REMOTE_PORT">
+      <value string="40913" />
+    </item>
+    <item name="REQUEST_METHOD">
+      <value string="POST" />
+    </item>
+    <item name="SCRIPT_NAME">
+      <value string="/Brand/AddBrand" />
+    </item>
+    <item name="SERVER_NAME">
+      <value string="localhost" />
+    </item>
+    <item name="SERVER_PORT">
+      <value string="54631" />
+    </item>
+    <item name="SERVER_PORT_SECURE">
+      <value string="0" />
+    </item>
+    <item name="SERVER_PROTOCOL">
+      <value string="HTTP/1.1" />
+    </item>
+    <item name="SERVER_SOFTWARE">
+      <value string="Microsoft-IIS/10.0" />
+    </item>
+    <item name="URL">
+      <value string="/Brand/AddBrand" />
+    </item>
+    <item name="HTTP_CACHE_CONTROL">
+      <value string="max-age=0" />
+    </item>
+    <item name="HTTP_CONNECTION">
+      <value string="keep-alive" />
+    </item>
+    <item name="HTTP_CONTENT_LENGTH">
+      <value string="41" />
+    </item>
+    <item name="HTTP_CONTENT_TYPE">
+      <value string="application/x-www-form-urlencoded" />
+    </item>
+    <item name="HTTP_ACCEPT">
+      <value string="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8" />
+    </item>
+    <item name="HTTP_ACCEPT_ENCODING">
+      <value string="gzip, deflate" />
+    </item>
+    <item name="HTTP_ACCEPT_LANGUAGE">
+      <value string="zh-CN,zh;q=0.8" />
+    </item>
+    <item name="HTTP_COOKIE">
+      <value string="_ga=GA1.1.1017900808.1453800464; uaactoken=0BE808CDCA943F340A6CE74A998C80D8A1E60DFB67F6DCABB152D291FAC007D0BC86CECCD6934610CD9610FC7C7A70B73F842FB6F4672C13FB03D63A8F45D01C7B9DB488709C8596ACCEDA54D6AECF8A6974D7DE227A3BD631EF09CB8DD0FC52C1ED7D97FDCA95D9FC1CE56946B1FB20452892DC618F34E5C3474FA79B81D99F015765320CD147A7FB7E10C1285AD789; .itms=DEBE7990AB89733A74F6AC7FF65D4544FB8C8762CE37D8A981971F0DE0F71B55197F87A1E0ECC4F353FD357A2AE45CE18F02C964A8E80B75B826EF3663A6FA391C92A4E0BAE20426C64DB7CAD2604045E860A2E626423ADE6684D72955B5186A; ASP.NET_SessionId=ueji143exava42zfntlu0pj4; __RequestVerificationToken=Sjumj7gnz3D7RzW0_d2hQpg6oZZa8J_lsKWWaSdyE7zqzJ3B3yQsVeUAJlx5XvQwVW5XU-IYPjqQnZtL23w_uRGObyLFiaCWXeTSVBH9wnU1; .AspNet.ApplicationCookie=i4Zewle1REvePI6Z9wvjdwf5SZ0NWW4K7nE0oB6rFLzFSZ1X0CAN9fBoMVWsY_i_W6EcKJnKcYo73sJ8C22dEHBhCkjoKMbnQthcMpDPnTMPuxeuorD6J2nFVIHXaDm4150YRa3LEMlCvVhfQbQBItV_yxvoIRqlz8nT21b1dyiWnrw_cF6KdAuHEjs464WGAbVvBRkiBV5RhnpxQEOBKeB5FJIt9WVzY_-lrxQKmwhkV40Lrvm8Rn-6FHmvv6FNvhsM43isSUOljm1gE6PkoxsZEYn06t9ygXJJU3Ejhokd_mukt9PA5xCG8YWxL615A9kQ3HD8UslRVZEi3MiICxwZaAll1IcP1NC4dBsC3QfsdGy9IDhoHOK1LUpIEo8Bo4JYBf3IORfVFSOwSULUXsN2J5nS0a7aeID9swhXMx82q1NJ7qYUl1YOfhrMQQgyBGknf83_OZtc9jXwmFjDncnl1fRCyZ-f-Of8LfiRYDo" />
+    </item>
+    <item name="HTTP_HOST">
+      <value string="localhost:54631" />
+    </item>
+    <item name="HTTP_REFERER">
+      <value string="http://localhost:54631/Brand" />
+    </item>
+    <item name="HTTP_USER_AGENT">
+      <value string="Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.80 Safari/537.36" />
+    </item>
+    <item name="HTTP_ORIGIN">
+      <value string="http://localhost:54631" />
+    </item>
+    <item name="HTTP_UPGRADE_INSECURE_REQUESTS">
+      <value string="1" />
+    </item>
+  </serverVariables>
+  <form>
+    <item name="name">
+      <value string="卡迪拉克" />
+    </item>
+  </form>
+  <cookies>
+    <item name="_ga">
+      <value string="GA1.1.1017900808.1453800464" />
+    </item>
+    <item name="uaactoken">
+      <value string="0BE808CDCA943F340A6CE74A998C80D8A1E60DFB67F6DCABB152D291FAC007D0BC86CECCD6934610CD9610FC7C7A70B73F842FB6F4672C13FB03D63A8F45D01C7B9DB488709C8596ACCEDA54D6AECF8A6974D7DE227A3BD631EF09CB8DD0FC52C1ED7D97FDCA95D9FC1CE56946B1FB20452892DC618F34E5C3474FA79B81D99F015765320CD147A7FB7E10C1285AD789" />
+    </item>
+    <item name=".itms">
+      <value string="DEBE7990AB89733A74F6AC7FF65D4544FB8C8762CE37D8A981971F0DE0F71B55197F87A1E0ECC4F353FD357A2AE45CE18F02C964A8E80B75B826EF3663A6FA391C92A4E0BAE20426C64DB7CAD2604045E860A2E626423ADE6684D72955B5186A" />
+    </item>
+    <item name="ASP.NET_SessionId">
+      <value string="ueji143exava42zfntlu0pj4" />
+    </item>
+    <item name="__RequestVerificationToken">
+      <value string="Sjumj7gnz3D7RzW0_d2hQpg6oZZa8J_lsKWWaSdyE7zqzJ3B3yQsVeUAJlx5XvQwVW5XU-IYPjqQnZtL23w_uRGObyLFiaCWXeTSVBH9wnU1" />
+    </item>
+    <item name=".AspNet.ApplicationCookie">
+      <value string="i4Zewle1REvePI6Z9wvjdwf5SZ0NWW4K7nE0oB6rFLzFSZ1X0CAN9fBoMVWsY_i_W6EcKJnKcYo73sJ8C22dEHBhCkjoKMbnQthcMpDPnTMPuxeuorD6J2nFVIHXaDm4150YRa3LEMlCvVhfQbQBItV_yxvoIRqlz8nT21b1dyiWnrw_cF6KdAuHEjs464WGAbVvBRkiBV5RhnpxQEOBKeB5FJIt9WVzY_-lrxQKmwhkV40Lrvm8Rn-6FHmvv6FNvhsM43isSUOljm1gE6PkoxsZEYn06t9ygXJJU3Ejhokd_mukt9PA5xCG8YWxL615A9kQ3HD8UslRVZEi3MiICxwZaAll1IcP1NC4dBsC3QfsdGy9IDhoHOK1LUpIEo8Bo4JYBf3IORfVFSOwSULUXsN2J5nS0a7aeID9swhXMx82q1NJ7qYUl1YOfhrMQQgyBGknf83_OZtc9jXwmFjDncnl1fRCyZ-f-Of8LfiRYDo" />
+    </item>
+  </cookies>
+</error>
