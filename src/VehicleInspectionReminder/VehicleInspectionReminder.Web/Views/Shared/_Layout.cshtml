@@ -4,6 +4,7 @@
     var roleClaimType = userIdentity.RoleClaimType;
     var roles = claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).ToList();
     bool isAdmin = roles.Any(p => p.Value == "Admin");
+    bool isCarOwner = roles.Any(p => p.Value == "CarOwner");
 }
 
 <!DOCTYPE html>
@@ -88,12 +89,40 @@
                     @{
                         if (User.Identity.IsAuthenticated)
                         {
-                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+                            using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "hide" }))
                             {
                                 @Html.AntiForgeryToken()
 
 
                                 @*<a href="javascript:document.getElementById('logoutForm').submit()">注销</a>*@
+                            }
+                            if (isCarOwner)
+                            {
+                                <li class="purple">
+                                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                        <i class="ace-icon fa fa-bell icon-animated-bell"></i>
+                                        <span class="badge badge-important" id="remain-badge"></span>
+                                    </a>
+
+                                    <ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
+                                        <li class="dropdown-header">
+                                            <i class="ace-icon fa fa-exclamation-triangle"></i>
+                                            车检提醒
+                                        </li>
+
+                                        <li class="dropdown-content ace-scroll" style="position: relative;">
+                                            <div class="scroll-track" style="display: none;">
+                                                <div class="scroll-bar"></div>
+                                            </div>
+                                            <div class="scroll-content" >
+                                                <ul class="dropdown-menu dropdown-navbar navbar-pink" id="remain-content">
+                                                    
+
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
                             }
                     <!-- #section:basics/navbar.user_menu -->
                             <li class="light-blue">
@@ -437,11 +466,43 @@
 
     <script>
         $(function () {
-            var curUrl = '@Url.Action(@ViewContext.RouteData.Values["action"].ToString(),@ViewContext.RouteData.Values["controller"].ToString())';
+            var curUrl = '@Url.Action(@ViewContext.RouteData.Values["action"].ToString(), @ViewContext.RouteData.Values["controller"].ToString())';
 
             $('#sidebar .nav-list').find('li').removeClass("active").find('a[href="' + curUrl + '"]').
-            closest('li').addClass('active').parent().parent('li').addClass('open');
+                closest('li').addClass('active').parent().parent('li').addClass('open');
+
         })
     </script>
+    @if (isCarOwner)
+    {
+        <script type="text/javascript">
+            $.getJSON('@Url.Action("GetCheckNotification","Home")', function (ret) {
+
+               
+                if (ret) {
+                    var $temp = '<li>' +
+                          '<a href="#">' +
+                          '<div class="clearfix">' +
+                          '<span class="pull-left">' +
+                          '<i class="btn btn-xs no-hover btn-pink fa fa-comment"></i>' +
+                          '  <b class="green">{{Plate}}</b> 还剩 <b class="red">{{RemainDay}}</b> 天进行车检' +
+                          '</span>' +
+                          '<span class="pull-right badge badge-info">{{RemainDay}}天</span>' +
+                          '</div>' +
+                          '</a>' +
+                          '</li>';
+                    var _html = '';
+                    $(ret).each(function (index, item) {
+
+                        _html += $temp.replace('{{Plate}}', item.Plate).replace(/{{RemainDay}}/g, item.RemainDay);
+                        
+                    });
+                    $("#remain-badge").html(ret.length);
+                    $("#remain-content").append(_html);
+                }
+            });
+        </script>
+
+    }
 </body>
 </html>

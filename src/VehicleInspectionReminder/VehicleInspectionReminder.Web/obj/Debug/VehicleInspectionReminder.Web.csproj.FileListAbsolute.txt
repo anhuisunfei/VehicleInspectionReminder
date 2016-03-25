@@ -183,3 +183,5 @@ F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.Core.xml
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.pdb
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.xml
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Autofac.Extras.Quartz.dll
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Autofac.Extras.Quartz.xml

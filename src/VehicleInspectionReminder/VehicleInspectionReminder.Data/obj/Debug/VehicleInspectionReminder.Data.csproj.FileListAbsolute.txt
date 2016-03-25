@@ -32,3 +32,4 @@ E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\bin\Debug\zh-Hans\EntityFramework.SqlServer.resources.dll
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.Migrations.updateOwnerinfo.resources
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.Migrations.updateidgenerater.resources
+F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Data\obj\Debug\VehicleInspectionReminder.Data.Migrations.AddNotificationMessage.resources
