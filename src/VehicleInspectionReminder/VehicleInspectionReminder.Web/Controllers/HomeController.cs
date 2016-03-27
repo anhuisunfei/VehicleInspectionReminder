@@ -29,17 +29,23 @@ namespace VehicleInspectionReminder.Web.Controllers
             return View();
         }
 
-        [Authorize(Roles = "CarOwner")]
+        [Authorize(Roles = "CarOwner,TrafficPolice")]
         public ActionResult Index()
         {
-            //_brandService.AddBrand(new Brand()
-            //{
-            //	 BrandName = "奥迪"
-            ////});
-            //var list = _brandService.GetAll();
-            //ViewBag.BrandList = list;
-            var list = _vehicleInfoService.GetUserCars(new Guid(User.Identity.GetUserId()));
-
+            var userIdentity = (System.Security.Claims.ClaimsIdentity)User.Identity;
+            var claims = userIdentity.Claims;
+            var roleClaimType = userIdentity.RoleClaimType;
+            var roles = claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).ToList();
+            bool isCarOwner = roles.Any(p => p.Value == "CarOwner");
+            IEnumerable<VehicleInfo> list = null;
+            if (isCarOwner)
+            {
+                list = _vehicleInfoService.GetUserCars(new Guid(User.Identity.GetUserId()));
+            }
+            else
+            {
+                list = _vehicleInfoService.GetAll();
+            }
             ViewBag.CarList = list;
             return View();
         }

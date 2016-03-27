@@ -2,8 +2,9 @@
 @using VehicleInspectionReminder.Model
 @using WebGrease.Css.Extensions
 @{
-    ViewBag.Title = "我的车辆信息";
+    ViewBag.Title = "车辆信息";
     IEnumerable<VehicleInfo> CarList = ViewBag.CarList as IEnumerable<VehicleInfo>;
+    bool isPolice = (bool)ViewBag.isPolice;
 }
 
 <div class="row">
@@ -12,6 +13,10 @@
             <thead>
                 <tr>
                     <th>#</th>
+                    @if (isPolice)
+                    {
+                        <th>车主</th>
+                    }
                     <th>车牌号</th>
                     <th>品牌</th>
                     <th>车辆类型</th>
@@ -33,6 +38,10 @@
                         {
                             <tr>
                                 <td>@item.Id</td>
+                                @if (isPolice)
+                                {
+                                    <td>@item.Owner.UserName</td>
+                                }
                                 <td>@item.Plate</td>
                                 <td>@item.VehicleBrand.BrandName</td>
                                 <td>@item.VehicleType.VehicleTypeName</td>

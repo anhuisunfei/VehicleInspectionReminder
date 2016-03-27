@@ -19,6 +19,8 @@ namespace VehicleInspectionReminder.Data.Infrastructure
 			: base("MyEntities")
 		{
             //this.Configuration.LazyLoadingEnabled = false;
+            base.Configuration.LazyLoadingEnabled = true;
+
 		}
 
 		#region Utilities
@@ -36,7 +38,6 @@ namespace VehicleInspectionReminder.Data.Infrastructure
 
 
 
-            base.Configuration.LazyLoadingEnabled = false;
 			base.OnModelCreating(modelBuilder);
 		}
 

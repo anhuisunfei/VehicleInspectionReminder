@@ -35,7 +35,7 @@ namespace VehicleInspectionReminder.Web.Controllers
         }
 
         #region 新车登记
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, CarCheck")]
         public ActionResult InsertNew()
         {
             var _list = _vehicleInfoService.GetAll();
@@ -117,7 +117,7 @@ namespace VehicleInspectionReminder.Web.Controllers
         }
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, CarCheck")]
         public ActionResult AddVehicleInfo(VehicleInfoModel model, string insuranceStatus, string fireCar, string lightCondition, string plateIsIntact)
         {
 
@@ -153,7 +153,7 @@ namespace VehicleInspectionReminder.Web.Controllers
         #endregion
 
         #region 车辆保养
-
+        [Authorize(Roles = "Admin, CarCheck")]
         /// <summary>
         /// 根据车牌号码，获取要保养的车辆信息
         /// </summary>
@@ -161,30 +161,32 @@ namespace VehicleInspectionReminder.Web.Controllers
         /// <returns></returns>
         public ActionResult Tenance(string plate)
         {
-             
+
             VehicleInfoModel model = new VehicleInfoModel();
             try
             {
 
-                var _list = _vehicleInfoService.GetAll();
-                ViewBag.List = _list;
-                VehicleInfo _info = _list.Where(m => m.Plate == plate).SingleOrDefault();
-
-                if (_info != null)
-                {
+                //var _list = _vehicleInfoService.GetAll();
+                var _info = _vehicleInfoService.GetCarInfo(plate);
+                ViewBag.InfoList = _info;
+                //VehicleInfo _info = _list.Where(m => m.Plate == plate).SingleOrDefault();
 
 
-                    //model.Owner.UserName = _ownerInfoService.GetAll().Where(o => o.Id == _info.OwnerId).SingleOrDefault().UserName;
-                    //model.VehicleBrand.Id = _info.VehicleBrand.Id;
-                    //model.VehicleBrand.BrandName = _info.VehicleBrand.BrandName;
-                    //model.VehicleTypeId = _info.VehicleTypeId;
-                    //model.VehicleType.VehicleTypeName = _info.VehicleType.VehicleTypeName;
-                    model.OwnerId = _info.OwnerId;
-                    model.Plate = _info.Plate;
-                    model.DeliveryTtime = _info.DeliveryTtime;
-                    model.PurchaseDate = _info.PurchaseDate;
 
-                }
+
+                //model.Owner.UserName = _ownerInfoService.GetAll().Where(o => o.Id == _info.OwnerId).SingleOrDefault().UserName;
+                //model.VehicleBrand.Id = _info.VehicleBrand.Id;
+                //model.VehicleBrand.BrandName = _info.VehicleBrand.BrandName;
+                //model.VehicleTypeId = _info.VehicleTypeId;
+                //model.VehicleType.VehicleTypeName = _info.VehicleType.VehicleTypeName;
+                model.OwnerId = _info.OwnerId;
+                model.VehicleBrand = _info.VehicleBrand;
+                model.VehicleTypeId = _info.VehicleTypeId;
+                model.Plate = _info.Plate;
+                model.PurchaseDate = _info.PurchaseDate;
+                model.DeliveryTtime = _info.DeliveryTtime;
+                model.PurchaseDate = _info.PurchaseDate;
+
 
 
             }
@@ -197,10 +199,10 @@ namespace VehicleInspectionReminder.Web.Controllers
 
 
         [HttpPost]
-        [Authorize(Roles = "Admin")]
-        public ActionResult Tenance(VehicleInfoModel model, string insuranceStatus, string fireCar, string lightCondition, string plateIsIntact)
+        [Authorize(Roles = "Admin, CarCheck")]
+        public ActionResult UpdateVehicleInfo(VehicleInfoModel model, string insuranceStatus, string fireCar, string lightCondition, string plateIsIntact)
         {
-            _vehicleInfoService.AddVehicleInfo(new VehicleInfo
+            _vehicleInfoService.UpdateVehicleInfo(new VehicleInfo
             {
                 OwnerId = model.OwnerId,
                 BrandId = model.BrandId,
@@ -216,9 +218,13 @@ namespace VehicleInspectionReminder.Web.Controllers
                 NextInspectionTime = _vehicleInfoService.GetNextInspectionTime(model.VehicleTypeId, model.Plate, 2, model.PurchaseDate)
             });
 
-            int xx = _vehicleInfoService.GetNextRemainDay(model.Plate);
+            _vehicleInfoService.GetNextRemainDay(model.Plate);
             return RedirectToAction("InsertNew");
         }
+
+
+
+
 
 
         #endregion

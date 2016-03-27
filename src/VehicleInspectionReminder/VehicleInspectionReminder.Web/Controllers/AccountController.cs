@@ -441,14 +441,15 @@ namespace VehicleInspectionReminder.Web.Controllers
 
         private ActionResult RedirectToLocal(string returnUrl)
         {
-            if (Url.IsLocalUrl(returnUrl))
-            {
-                return Redirect(returnUrl);
-            }
-            else
-            {
-                return RedirectToAction("Welcome", "Home");
-            }
+            return RedirectToAction("Welcome", "Home");
+            //if (Url.IsLocalUrl(returnUrl))
+            //{
+            //    return Redirect(returnUrl);
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Welcome", "Home");
+            //}
         }
 
         private class ChallengeResult : HttpUnauthorizedResult

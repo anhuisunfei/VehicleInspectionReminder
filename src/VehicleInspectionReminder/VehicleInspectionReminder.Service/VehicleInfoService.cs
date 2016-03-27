@@ -35,6 +35,12 @@ namespace VehicleInspectionReminder.Service
             _unitofwork.Commit();
         }
 
+        public void UpdateVehicleInfo(VehicleInfo model)
+        {
+            _vehicleInfoRepository.Update(model);
+            _unitofwork.Commit();
+        }
+
         public IEnumerable<VehicleInfo> GetAll()
         {
             return _vehicleInfoRepository.GetAll();
@@ -76,6 +82,11 @@ namespace VehicleInspectionReminder.Service
         public IEnumerable<VehicleInfo> GetUserCars(Guid aspnetUserID)
         {
             return _vehicleInfoRepository.GetManay(p => p.Owner.AspNetUserId == aspnetUserID).ToList();
+        }
+
+        public VehicleInfo GetCarInfo(string plate)
+        {
+            return _vehicleInfoRepository.GetManay(p => p.Plate==plate).SingleOrDefault();
         }
 
         public DateTime GetNextInspectionTime(int VehicleTypeId, string plate, int typeId, DateTime PurchaseDate)
@@ -187,6 +198,15 @@ public interface IVehicleInfoService
     /// <param name="PurchaseDate">购车日期</param>
     /// <returns></returns>
     DateTime GetNextInspectionTime(int VehicleTypeId, string plate, int typeId, DateTime PurchaseDate);
+
+    /// <summary>
+    /// 获取指定车辆信息
+    /// </summary>
+    /// <param name="plate"></param>
+    /// <returns></returns>
+    VehicleInfo GetCarInfo(string plate);
+
+    void UpdateVehicleInfo(VehicleInfo model);
 }
 
 

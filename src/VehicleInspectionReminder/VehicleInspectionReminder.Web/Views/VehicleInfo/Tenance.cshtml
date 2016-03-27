@@ -1,8 +1,11 @@
 ﻿@model VehicleInspectionReminder.Web.Models.VehicleInfoModel
+@using System.Collections
+@using VehicleInspectionReminder.Model
+@using WebGrease.Css.Extensions
 @{
-    ViewBag.Title = "Tenance";
+    ViewBag.Title = "车辆检测";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    var vehicleInfoList = ViewBag.List as IEnumerable<VehicleInspectionReminder.Model.VehicleInfo>;
+    VehicleInfo InfoList = ViewBag.InfoList as VehicleInfo;
 }
 
 <div class="row">
@@ -31,6 +34,11 @@
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
                                             @Html.HiddenFor(m => m.OwnerId)
+                                            @Html.HiddenFor(m => m.VehicleBrand.Id)
+                                            @Html.HiddenFor(m => m.VehicleTypeId)
+                                            @Html.HiddenFor(m => m.Plate)
+                                            @Html.HiddenFor(m => m.DeliveryTtime)
+                                            @Html.HiddenFor(m => m.PurchaseDate)
                                         </span>
                                     </label>
 
@@ -134,15 +142,15 @@
                         <tbody>
                             @{
                                 //显示当前保养车辆的信息
-                                foreach (var item in vehicleInfoList)
+                                if (null != InfoList)
                                 {
                                     <tr>
-                                        <td>@item.Id</td>
-                                        <td>@item.Owner.UserName</td>
-                                        <td>@item.VehicleType.VehicleTypeName</td>
-                                        <td>@item.Plate</td>
-                                        <td>@item.DeliveryTtime</td>
-                                        <td>@item.PurchaseDate</td>
+                                        <td>@InfoList.Id</td>
+                                        <td>@InfoList.Owner.UserName</td>
+                                        <td>@InfoList.VehicleType.VehicleTypeName</td>
+                                        <td>@InfoList.Plate</td>
+                                        <td>@InfoList.DeliveryTtime</td>
+                                        <td>@InfoList.PurchaseDate</td>
 
                                     </tr>
                                 }

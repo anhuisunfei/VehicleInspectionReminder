@@ -145,8 +145,9 @@
                                                 我的信息
                                             </a>
                                         </li>
+                                        <li class="divider"></li>
                                     }
-                                    <li class="divider"></li>
+
 
                                     <li>
                                         <a href="javascript:document.getElementById('logoutForm').submit()">
@@ -213,12 +214,12 @@
             </div><!-- /.sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                @if (isCarOwner)
+                @if (isCarOwner||isPolice)
                 {
                     <li class="active">
                         <a href="@Url.Action("Index","Home")">
                             <i class="menu-icon fa fa-tachometer"></i>
-                            <span class="menu-text">我的车辆信息</span>
+                            <span class="menu-text">车辆信息</span>
                         </a>
 
                         <b class="arrow"></b>
@@ -262,6 +263,36 @@
                                     车辆类型
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+
+                }
+                @if (isAdmin || isCarCheck)
+                {
+                    <li class="">
+                        <a href="#" class="dropdown-toggle">
+                            <i class="menu-icon fa fa-pencil-square-o"></i>
+                            <span class="menu-text">
+                                车辆信息管理
+                            </span>
+
+                            <b class="arrow fa fa-angle-down"></b>
+                        </a>
+                        <b class="arrow"></b>
+                        <ul class="submenu">
+                            <li class="">
+                                <a href="@Url.Action("InsertNew", "VehicleInfo")">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    登记/检测
+                                </a>
+                            </li>
+
+                            @*<li class="">
+                                    <a href="@Url.Action("Index", "VehicleType")">
+                                        <i class="menu-icon fa fa-caret-right"></i>
+                                       车辆类型
+                                    </a>
+                                </li>*@
                         </ul>
                     </li>
                 }
