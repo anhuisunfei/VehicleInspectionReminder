@@ -15,11 +15,15 @@ namespace VehicleInspectionReminder.Web.Controllers
         private IVehicleInfoService _vehicleInfoService;
         private IVehicleTypeService _vehicleTypeService;
         private IBrandService _brandService;
-        public VehicleInfoController(IVehicleInfoService vehicleInfoService, IVehicleTypeService vehicleTypeService,IBrandService brandService)
+        private IOwnerInfoService _ownerInfoService;
+
+
+        public VehicleInfoController(IVehicleInfoService vehicleInfoService, IVehicleTypeService vehicleTypeService, IBrandService brandService, IOwnerInfoService ownerInfoService)
         {
             _vehicleInfoService = vehicleInfoService;
             _vehicleTypeService = vehicleTypeService;
             _brandService = brandService;
+            _ownerInfoService = ownerInfoService;
         }
 
 
@@ -30,12 +34,37 @@ namespace VehicleInspectionReminder.Web.Controllers
             return View();
         }
 
+        #region 新车登记
         [Authorize(Roles = "Admin")]
         public ActionResult InsertNew()
         {
             var _list = _vehicleInfoService.GetAll();
             var typeList = _vehicleTypeService.GetAll();
             var brandList = _brandService.GetAll();
+            var ownerList = _ownerInfoService.GetAll();
+
+            ICollection<SelectListItem> dropOwnerList = new List<SelectListItem>
+            {
+                 new SelectListItem{
+                Text="请选择车主",
+                 Value="0"
+                }
+            };
+
+            if (typeList != null)
+            {
+                foreach (var item in ownerList)
+                {
+                    dropOwnerList.Add(new SelectListItem
+                    {
+                        Text = item.UserName,
+                        Value = item.Id.ToString()
+                    });
+                }
+
+            }
+
+
             ICollection<SelectListItem> dropTypeList = new List<SelectListItem>
             {
                  new SelectListItem{
@@ -81,6 +110,7 @@ namespace VehicleInspectionReminder.Web.Controllers
             ViewBag.typeList = dropTypeList;
             ViewBag.brandList = dropBrandList;
             ViewBag.List = _list;
+            ViewBag.ownerList = dropOwnerList;
             //  this.GetVehicleTypeList();
 
             return View();
@@ -88,7 +118,7 @@ namespace VehicleInspectionReminder.Web.Controllers
 
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public ActionResult AddVehicleInfo(VehicleInfoModel model)
+        public ActionResult AddVehicleInfo(VehicleInfoModel model, string insuranceStatus, string fireCar, string lightCondition, string plateIsIntact)
         {
 
             if (string.IsNullOrWhiteSpace(model.Plate))
@@ -97,34 +127,101 @@ namespace VehicleInspectionReminder.Web.Controllers
 
                 var _list = _vehicleInfoService.GetAll();
                 ViewBag.List = _list;
-                return View("Index");
+                return View("InsertNew");
             }
             _vehicleInfoService.AddVehicleInfo(new VehicleInfo
             {
+                OwnerId = model.OwnerId,
+                BrandId = model.BrandId,
                 VehicleTypeId = model.VehicleTypeId,
                 Plate = model.Plate,
                 DeliveryTtime = model.DeliveryTtime,
                 PurchaseDate = model.PurchaseDate,
-                InsuranceStatus = Boolean.Parse(model.InsuranceStatus.ToString()),
-                FireCar = model.FireCar,
-                LightCondition = model.LightCondition,
-                PlateIsIntact = model.PlateIsIntact,
+                InsuranceStatus = insuranceStatus == "1" ? true : false,
+                FireCar = (FireCarType)Enum.Parse(typeof(FireCarType), fireCar),
+                LightCondition = (LightConditionType)Enum.Parse(typeof(LightConditionType), lightCondition),
+                PlateIsIntact = (PlateType)Enum.Parse(typeof(PlateType), plateIsIntact),
                 LastInspectionTime = DateTime.Now.AddDays(7),//车辆检测时间加7天为这次检测时间
                 NextInspectionTime = _vehicleInfoService.GetNextInspectionTime(model.VehicleTypeId, model.Plate, 1, model.PurchaseDate)
             });
 
-            _vehicleInfoService.GetNextRemainDay(model.Plate);
-            return RedirectToAction("Index");
+            int xx = _vehicleInfoService.GetNextRemainDay(model.Plate);
+            return RedirectToAction("InsertNew");
 
         }
 
-        //public void GetVehicleTypeList()
-        //{
-        //    var list = _vehicletypeService.GetAll();
-        //    ViewData["VehicleTypeList"] = new SelectList(list, "Id", "VehicleTypeName");
+        #endregion
 
-        //}
+        #region 车辆保养
 
+        /// <summary>
+        /// 根据车牌号码，获取要保养的车辆信息
+        /// </summary>
+        /// <param name="plate"></param>
+        /// <returns></returns>
+        public ActionResult Tenance(string plate)
+        {
+             
+            VehicleInfoModel model = new VehicleInfoModel();
+            try
+            {
+
+                var _list = _vehicleInfoService.GetAll();
+                ViewBag.List = _list;
+                VehicleInfo _info = _list.Where(m => m.Plate == plate).SingleOrDefault();
+
+                if (_info != null)
+                {
+
+
+                    //model.Owner.UserName = _ownerInfoService.GetAll().Where(o => o.Id == _info.OwnerId).SingleOrDefault().UserName;
+                    //model.VehicleBrand.Id = _info.VehicleBrand.Id;
+                    //model.VehicleBrand.BrandName = _info.VehicleBrand.BrandName;
+                    //model.VehicleTypeId = _info.VehicleTypeId;
+                    //model.VehicleType.VehicleTypeName = _info.VehicleType.VehicleTypeName;
+                    model.OwnerId = _info.OwnerId;
+                    model.Plate = _info.Plate;
+                    model.DeliveryTtime = _info.DeliveryTtime;
+                    model.PurchaseDate = _info.PurchaseDate;
+
+                }
+
+
+            }
+            catch (Exception)
+            {
+            }
+
+            return View(model);
+        }
+
+
+        [HttpPost]
+        [Authorize(Roles = "Admin")]
+        public ActionResult Tenance(VehicleInfoModel model, string insuranceStatus, string fireCar, string lightCondition, string plateIsIntact)
+        {
+            _vehicleInfoService.AddVehicleInfo(new VehicleInfo
+            {
+                OwnerId = model.OwnerId,
+                BrandId = model.BrandId,
+                VehicleTypeId = model.VehicleTypeId,
+                Plate = model.Plate,
+                DeliveryTtime = model.DeliveryTtime,
+                PurchaseDate = model.PurchaseDate,
+                InsuranceStatus = insuranceStatus == "1" ? true : false,
+                FireCar = (FireCarType)Enum.Parse(typeof(FireCarType), fireCar),
+                LightCondition = (LightConditionType)Enum.Parse(typeof(LightConditionType), lightCondition),
+                PlateIsIntact = (PlateType)Enum.Parse(typeof(PlateType), plateIsIntact),
+                LastInspectionTime = DateTime.Now.AddDays(7),//车辆检测时间加7天为这次检测时间
+                NextInspectionTime = _vehicleInfoService.GetNextInspectionTime(model.VehicleTypeId, model.Plate, 2, model.PurchaseDate)
+            });
+
+            int xx = _vehicleInfoService.GetNextRemainDay(model.Plate);
+            return RedirectToAction("InsertNew");
+        }
+
+
+        #endregion
 
     }
 }

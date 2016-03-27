@@ -16,6 +16,12 @@ namespace VehicleInspectionReminder.Data.Mapping
 			this.HasKey(p => p.Id);
 			Property(p => p.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
 			// HasRequired(p => p.Owner).WithMany().HasForeignKey(p => p.Id);
+
+           // HasRequired(p => p.Owner).WithMany().HasForeignKey(p => p.OwnerId);
+            //HasOptional(p => p.VehicleType).WithMany().HasForeignKey(p => p.VehicleTypeId);
+            HasRequired(p => p.VehicleType).WithMany().HasForeignKey(p => p.VehicleTypeId);
+            HasRequired(p => p.VehicleBrand).WithMany().HasForeignKey(p => p.BrandId);
+           // HasOptional(p => p.VehicleBrand).WithRequired();
 		}
 	}
 }

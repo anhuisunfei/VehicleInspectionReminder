@@ -15,11 +15,10 @@ namespace VehicleInspectionReminder.Service
         private IVehicleInfoRepository _vehicleInfoRepository;
         private IVehicleTypeRepository _vehicleTypeRepository;
 
-        public VehicleInfoService(IUnitOfWork unitofwork, IVehicleInfoRepository vehicleInfoRepository, IVehicleTypeRepository vehicleTypeRepository)
+        public VehicleInfoService(IUnitOfWork unitofwork, IVehicleInfoRepository vehicleInfoRepository)
         {
             _unitofwork = unitofwork;
             _vehicleInfoRepository = vehicleInfoRepository;
-            _vehicleTypeRepository = vehicleTypeRepository;
         }
 
         public void AddVehicleInfo(VehicleInfo model)
@@ -28,10 +27,10 @@ namespace VehicleInspectionReminder.Service
 
             if (_vehicleInfoRepository.GetManay(p => p.Plate == model.Plate).Any())
             {
-                throw new ArgumentException("同一车牌的车辆已存在");
+                throw new ArgumentException("违章类型已存在");
             }
 
-            _vehicleInfoRepository.Insert(model);
+           // _vehicleInfoRepository.Insert(model);
             _unitofwork.Commit();
         }
 
@@ -51,25 +50,12 @@ namespace VehicleInspectionReminder.Service
         public int GetNextRemainDay(string plate)
         {
             int day = 0;
-            DateTime nextTime = DateTime.Now;
-            try
-            {
-                //下一次车检日期也就是下一次车检时间
-                //  DateTime nextTime = DateTime.Parse(_vehicleInfoRepository.GetManay(o => o.Plate == plate).First().NextInspectionTime.ToString());
-                if (_vehicleInfoRepository.GetManay(o => o.Plate == plate).Any())
-                {
-                    nextTime = DateTime.Parse(_vehicleInfoRepository.GetManay(o => o.Plate == plate).First().NextInspectionTime.ToString());
-                }
 
-                // 下一次车检日期 - 当前系统时间  = 剩余天数
-                TimeSpan ts = DateTime.Parse(nextTime.ToShortDateString()) - DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
-                day = ts.Days;
-            }
-            catch (Exception)
-            {
-                day = 0;
-            }
-
+            //下一次车检日期也就是下一次车检时间
+            DateTime nextTime = DateTime.Parse(_vehicleInfoRepository.GetManay(o => o.Plate == plate).First().NextInspectionTime.ToString());
+            // 下一次车检日期 - 当前系统时间  = 剩余天数
+            TimeSpan ts = DateTime.Parse(nextTime.ToShortDateString()) - DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
+            day = ts.Days;
             return day;
         }
 
@@ -80,45 +66,22 @@ namespace VehicleInspectionReminder.Service
 
         public DateTime GetNextInspectionTime(int VehicleTypeId, string plate, int typeId, DateTime PurchaseDate)
         {
-            DateTime nextInspectionTime = DateTime.Now;
+            DateTime nextInspectionTime = new DateTime();
             //获取该类型车辆车检周期
             VehicleType vehicleType = _vehicleTypeRepository.GetById(VehicleTypeId);
+            //获取该车信息
+            VehicleInfo vehicleInfo = _vehicleInfoRepository.GetManay(o => o.Plate == plate).First();
+
 
             string nowDate = DateTime.Now.ToShortDateString();//此次车检日期， 默认为当前日期
 
-            //如果typeId =1   则表明该车是第一次车检 ， 则用当前日期+检测周期作为下一次车检日期
-            if (typeId == 1)
+            //如果typeId =1 并且  vehicleInfo是null  则表明该车是第一次车检 ， 则用当前日期+检测周期作为下一次车检日期
+            if (typeId == 1 && vehicleType == null)
             {
-                //购车日期+第一阶段周期 > 当前时间，说明还在第一阶段检车期
-                if (PurchaseDate.AddYears(vehicleType.FirstJY_Year) > DateTime.Parse(nowDate))
-                {
-                    //购车日期+周期内时间=下一次车检日期
-                    nextInspectionTime = PurchaseDate.AddMonths(vehicleType.FirstJY_Cycle);
-                }//否则判断是否存在第三检测期， 若不存在  则按第二阶段计算下次车检日期
-                else if (vehicleType.LastJY_Year == 0)
-                {
-                    nextInspectionTime = PurchaseDate.AddMonths(vehicleType.SecondJY_Cycle);
-                }
-                else
-                {
-                    //购车日期+第三阶段<当前日期 ， 说明处于第二阶段 
-                    if (PurchaseDate.AddYears(vehicleType.LastJY_Year) > DateTime.Parse(nowDate))
-                    {
-                        nextInspectionTime = PurchaseDate.AddMonths(vehicleType.SecondJY_Cycle);
-                    }
-                    else
-                    {
-                        nextInspectionTime = PurchaseDate.AddMonths(vehicleType.LastJY_Cycle);
-                    }
-
-                }
-
-                return nextInspectionTime;
+                nextInspectionTime = DateTime.Now;
             }
             else
             {
-                //获取该车信息
-                VehicleInfo vehicleInfo = _vehicleInfoRepository.GetManay(o => o.Plate == plate).First();
 
                 //购车日期+第一阶段周期 > 当前时间，说明还在第一阶段检车期
                 if (PurchaseDate.AddYears(vehicleType.FirstJY_Year) > DateTime.Parse(nowDate))

@@ -37,6 +37,11 @@ namespace VehicleInspectionReminder.Service
 			_ownerInfoRepository.Update(model);
 			_unitOfWork.Commit();
 		}
+
+        public IEnumerable<OwnerInfo> GetAll()
+        {
+            return _ownerInfoRepository.GetAll().ToList();
+        }
 	}
 
 	public interface IOwnerInfoService
@@ -45,5 +50,7 @@ namespace VehicleInspectionReminder.Service
 		void UpdateOwnerInfo(OwnerInfo model);
 
 		OwnerInfo GetOwnerInfoByUserId(Guid id);
+
+        IEnumerable<OwnerInfo> GetAll();
 	}
 }

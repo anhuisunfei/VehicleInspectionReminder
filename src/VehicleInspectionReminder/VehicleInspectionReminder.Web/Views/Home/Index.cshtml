@@ -2,8 +2,8 @@
 @using VehicleInspectionReminder.Model
 @using WebGrease.Css.Extensions
 @{
-    ViewBag.Title = "Home Page";
-    IEnumerable<Brand> brandList = ViewBag.BrandList as IEnumerable<Brand>;
+    ViewBag.Title = "我的车辆信息";
+    IEnumerable<VehicleInfo> CarList = ViewBag.CarList as IEnumerable<VehicleInfo>;
 }
 
 <div class="row">
@@ -12,20 +12,78 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>BrandName</th>
+                    <th>车牌号</th>
+                    <th>品牌</th>
+                    <th>车辆类型</th>
+                    <th>出厂时间</th>
+                    <th>购买日期</th>
+                    <th>投保状态</th>
+                    <th>车内消防设施情况</th>
+                    <th>照明设施情况</th>
+                    <th>车牌是否完整</th>
+                    <th>最后一次车检时间</th>
                 </tr>
 
             </thead>
             <tbody>
                 @{
-                    if (brandList != null)
+                    if (CarList != null)
                     {
-                        foreach (var item in brandList)
+                        foreach (var item in CarList)
                         {
                             <tr>
                                 <td>@item.Id</td>
-                                <td>@item.BrandName</td>
-                        </tr>
+                                <td>@item.Plate</td>
+                                <td>@item.VehicleBrand.BrandName</td>
+                                <td>@item.VehicleType.VehicleTypeName</td>
+                                <td>@item.DeliveryTtime.ToShortDateString()</td>
+                                <td>@item.PurchaseDate.ToShortDateString()</td>
+                                <td>@(item.InsuranceStatus ? "已投保" : "未投保")</td>
+                                <td>
+                                    @{
+                            var html = "";
+                            switch (item.LightCondition)
+                            {
+                                case LightConditionType.Damage:
+                                    html = "损毁";
+                                    break;
+                                case LightConditionType.General:
+                                    html = "一般";
+                                    break;
+                                case LightConditionType.Good:
+                                    html = "良好";
+                                    break;
+                                default:
+                                    break;
+                            }
+                                    }
+                                    @html
+                                </td>
+                                <td>
+                                    @{
+                            switch (item.LightCondition)
+                            {
+                                case LightConditionType.Good:
+                                    <span>良好</span>;
+                                    break;
+                                case LightConditionType.General:
+                                    <span>一般</span>
+                                    break;
+                                case LightConditionType.Damage:
+                                    <span>损毁</span>
+                                    break;
+                                default:
+                                    break;
+                            }
+                                    }
+                                </td>
+                                <td>
+                                    @(item.PlateIsIntact==PlateType.Intact?"完好":"损毁")
+                                </td>
+                                <td>
+                                    @(item.LastInspectionTime.HasValue?item.LastInspectionTime.Value.ToShortDateString():string.Empty)
+                                </td>
+                            </tr>
                         }
                     }
                 }

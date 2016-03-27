@@ -1,10 +1,9 @@
 ﻿@{
-    var userIdentity = (System.Security.Claims.ClaimsIdentity)User.Identity;
-    var claims = userIdentity.Claims;
-    var roleClaimType = userIdentity.RoleClaimType;
-    var roles = claims.Where(c => c.Type == System.Security.Claims.ClaimTypes.Role).ToList();
-    bool isAdmin = roles.Any(p => p.Value == "Admin");
-    bool isCarOwner = roles.Any(p => p.Value == "CarOwner");
+
+    bool isAdmin = (bool)ViewBag.isAdmin;
+    bool isCarOwner = (bool)ViewBag.isCarOwner;
+    bool isCarCheck = (bool)ViewBag.isCarCheck;
+    bool isPolice = (bool)ViewBag.isPolice;
 }
 
 <!DOCTYPE html>
@@ -114,11 +113,8 @@
                                             <div class="scroll-track" style="display: none;">
                                                 <div class="scroll-bar"></div>
                                             </div>
-                                            <div class="scroll-content" >
-                                                <ul class="dropdown-menu dropdown-navbar navbar-pink" id="remain-content">
-                                                    
-
-                                                </ul>
+                                            <div class="scroll-content">
+                                                <ul class="dropdown-menu dropdown-navbar navbar-pink" id="remain-content"></ul>
                                             </div>
                                         </li>
                                     </ul>
@@ -141,14 +137,15 @@
                                 </a>
 
                                 <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-
-                                    <li>
-                                        <a href="@Url.Action("Profile","Account")">
-                                            <i class="ace-icon fa fa-user"></i>
-                                            我的信息
-                                        </a>
-                                    </li>
-
+                                    @if (isCarOwner)
+                                    {
+                                        <li>
+                                            <a href="@Url.Action("Profile","Account")">
+                                                <i class="ace-icon fa fa-user"></i>
+                                                我的信息
+                                            </a>
+                                        </li>
+                                    }
                                     <li class="divider"></li>
 
                                     <li>
@@ -216,14 +213,27 @@
             </div><!-- /.sidebar-shortcuts -->
 
             <ul class="nav nav-list">
-                <li class="active">
-                    <a href="@Url.Action("Index","Home")">
-                        <i class="menu-icon fa fa-tachometer"></i>
-                        <span class="menu-text">我的车辆信息</span>
-                    </a>
+                @if (isCarOwner)
+                {
+                    <li class="active">
+                        <a href="@Url.Action("Index","Home")">
+                            <i class="menu-icon fa fa-tachometer"></i>
+                            <span class="menu-text">我的车辆信息</span>
+                        </a>
 
-                    <b class="arrow"></b>
-                </li>
+                        <b class="arrow"></b>
+                    </li>
+                }@if (isCarCheck || isPolice || isAdmin)
+                {
+                    <li>
+                        <a href="@Url.Action("CarOwnerList","Home")">
+                            <i class="menu-icon fa fa-user"></i>
+                            <span class="menu-text">车主列表</span>
+                        </a>
+
+                        <b class="arrow"></b>
+                    </li>
+                }
                 @if (isAdmin)
                 {
                     <li class="">
@@ -249,7 +259,7 @@
                             <li class="">
                                 <a href="@Url.Action("Index", "VehicleType")">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    违章信息
+                                    车辆类型
                                 </a>
                             </li>
                         </ul>
@@ -280,7 +290,7 @@
                     <ul class="breadcrumb">
                         <li>
                             <i class="ace-icon fa fa-home home-icon"></i>
-                            <a href="#">首页</a>
+                            <a href="#">车辆管理系统</a>
                         </li>
                         <li class="active">@ViewBag.Title</li>
                     </ul><!-- /.breadcrumb -->
@@ -476,9 +486,10 @@
     @if (isCarOwner)
     {
         <script type="text/javascript">
+            var aa = '@ViewBag.isAdmin';
             $.getJSON('@Url.Action("GetCheckNotification","Home")', function (ret) {
 
-               
+
                 if (ret) {
                     var $temp = '<li>' +
                           '<a href="#">' +
@@ -495,7 +506,7 @@
                     $(ret).each(function (index, item) {
 
                         _html += $temp.replace('{{Plate}}', item.Plate).replace(/{{RemainDay}}/g, item.RemainDay);
-                        
+
                     });
                     $("#remain-badge").html(ret.length);
                     $("#remain-content").append(_html);

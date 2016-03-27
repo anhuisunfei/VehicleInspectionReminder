@@ -16,13 +16,13 @@ namespace VehicleInspectionReminder.Model
 		/// </summary>
 		public int BrandId { get; set; }
 
-		public Brand VehicleBrand { get; set; }
+		public virtual  Brand VehicleBrand { get; set; }
 
 		/// <summary>
 		/// 车辆类型
 		/// </summary>
 		public int VehicleTypeId { get; set; }
-		public VehicleType VehicleType { get; set; }
+		public virtual  VehicleType VehicleType { get; set; }
 
 		/// <summary>
 		/// 车牌
@@ -74,7 +74,7 @@ namespace VehicleInspectionReminder.Model
 		/// </summary>
 		public int OwnerId { get; set; }
 
-		public OwnerInfo Owner { get; set; }
+		public virtual OwnerInfo Owner { get; set; }
 		 
 	}
 }

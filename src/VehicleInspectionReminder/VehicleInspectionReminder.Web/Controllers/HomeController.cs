@@ -15,21 +15,32 @@ namespace VehicleInspectionReminder.Web.Controllers
     {
         private readonly IBrandService _brandService;
         private readonly IVehicleInfoService _vehicleInfoService;
-        public HomeController(IBrandService brandService, IVehicleInfoService vehicleInfoService)
+        private readonly IOwnerInfoService _ownerInfoService;
+        public HomeController(IBrandService brandService, IVehicleInfoService vehicleInfoService, IOwnerInfoService ownerInfoService)
         {
             _brandService = brandService;
             _vehicleInfoService = vehicleInfoService;
+            _ownerInfoService = ownerInfoService;
         }
 
         [Authorize]
+        public ActionResult Welcome()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "CarOwner")]
         public ActionResult Index()
         {
             //_brandService.AddBrand(new Brand()
             //{
             //	 BrandName = "奥迪"
-            //});
-            var list = _brandService.GetAll();
-            ViewBag.BrandList = list;
+            ////});
+            //var list = _brandService.GetAll();
+            //ViewBag.BrandList = list;
+            var list = _vehicleInfoService.GetUserCars(new Guid(User.Identity.GetUserId()));
+
+            ViewBag.CarList = list;
             return View();
         }
 
@@ -44,6 +55,19 @@ namespace VehicleInspectionReminder.Web.Controllers
             return View();
         }
 
+        /// <summary>
+        /// 车主列表
+        /// </summary>
+        /// <returns></returns>
+        [Authorize(Roles = "Admin,CarCheck,TrafficPolice")]
+        public ActionResult CarOwnerList()
+        {
+            var list = _ownerInfoService.GetAll();
+            ViewBag.OwnerList = list;
+            return View();
+        }
+
+
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
@@ -51,17 +75,19 @@ namespace VehicleInspectionReminder.Web.Controllers
             return View();
         }
 
+
+
         [Authorize(Roles = "CarOwner")]
         public ActionResult GetCheckNotification()
         {
             string userId = User.Identity.GetUserId();
             var carList = _vehicleInfoService.GetUserCars(new Guid(userId));
 
-             var list=carList.Select(p => new
-            {
-                Plate = p.Plate,
-                RemainDay = _vehicleInfoService.GetNextRemainDay(p.Plate)
-            }); 
+            var list = carList.Select(p => new
+           {
+               Plate = p.Plate,
+               RemainDay = _vehicleInfoService.GetNextRemainDay(p.Plate)
+           });
             return Json(list, JsonRequestBehavior.AllowGet);
         }
     }

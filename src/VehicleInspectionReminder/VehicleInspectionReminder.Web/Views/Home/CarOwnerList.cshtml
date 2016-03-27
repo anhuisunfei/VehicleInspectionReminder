@@ -1,0 +1,37 @@
+﻿@using VehicleInspectionReminder.Model;
+@{
+    ViewBag.Title = "车主列表";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    IEnumerable<OwnerInfo> CarOnwerList = ViewBag.OwnerList as IEnumerable<VehicleInspectionReminder.Model.OwnerInfo>;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>车主姓名</th>
+                    <th>性别</th>
+                    <th>驾驶证</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (CarOnwerList != null)
+                    {
+                        foreach (var item in CarOnwerList)
+                        {
+                            <tr>
+                                <td>@item.Id</td>
+                                <td>@item.UserName</td>
+                                <td>@(item.Gender == Gender.Male ? "男" : "女")</td>
+                                <td>@(item.LicenseNum)</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

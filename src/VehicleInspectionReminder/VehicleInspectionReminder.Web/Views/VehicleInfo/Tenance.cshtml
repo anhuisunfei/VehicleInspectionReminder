@@ -1,21 +1,20 @@
 ﻿@model VehicleInspectionReminder.Web.Models.VehicleInfoModel
 @{
-    ViewBag.Title = "新车登记";
+    ViewBag.Title = "Tenance";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var vehicleInfoList = ViewBag.List as IEnumerable<VehicleInspectionReminder.Model.VehicleInfo>;
 }
-
 
 <div class="row">
     <div class="col-md-12">
         <div class="widget-box">
             <div class="widget-header widget-header-small">
-                <h5 class="widget-title lighter">新增车辆信息</h5>
+                <h5 class="widget-title lighter">车辆检测</h5>
             </div>
 
             <div class="widget-body">
                 <div class="widget-main">
-                    <form class="form-search" action="@Url.Action("AddVehicleInfo")" method="post">
+                    <form class="form-search" action="@Url.Action("UpdateVehicleInfo")" method="post">
                         <div class="row">
                             <div class="col-xs-12 col-sm-8">
                                 @if (!string.IsNullOrWhiteSpace(ViewBag.Message as string))
@@ -31,47 +30,17 @@
                                 <fieldset>
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
-
-                                            @Html.DropDownListFor(m => m.OwnerId, ViewBag.ownerList as List<SelectListItem>, new { @class = "form-control" })
+                                            @Html.HiddenFor(m => m.OwnerId)
                                         </span>
                                     </label>
 
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
-
-                                            @Html.DropDownListFor(m => m.BrandId, ViewBag.brandList as List<SelectListItem>, new { @class = "form-control" })
+                                            @Html.LabelFor(m => m.Plate)：
+                                            @Model.Plate
                                         </span>
                                     </label>
 
-                                    <label class="block clearfix">
-                                        <span class="block input-icon input-icon-right">
-
-                                            @Html.DropDownListFor(m => m.VehicleTypeId, ViewBag.typeList as List<SelectListItem>, new { @class = "form-control" })
-
-                                        </span>
-                                    </label>
-                                    <label class="block clearfix">
-                                        <span class="block input-icon input-icon-right">
-
-                                            @Html.TextBoxFor(m => m.Plate, new { @class = "form-control", placeholder = "车牌号" })
-                                        </span>
-                                    </label>
-                                    <label class="block clearfix">
-
-                                        <span class="block input-icon input-icon-right">
-                                            @*<label class="col-sm-3 control-label no-padding-right" for="txtBirthDay">出厂时间</label>*@
-
-                                            @*<input class="input-medium date-picker" name="BirthDay" id="txtDeliveryTtime" type="text" placeholder="出厂时间" required="">*@
-                                            @*<input class="input-medium date-picker" name="BirthDay" value="@(Model == null ? string.Empty : (Model.DeliveryTtime.ToString("yyyy-MM-dd")))" id="txtBirthDay" type="text" placeholder="yyyy-mm-dd" required="">*@
-                                            @Html.TextBoxFor(m => m.DeliveryTtime, new { @class = "form-control input-medium date-picker", placeholder = "出厂时间" })
-                                        </span>
-                                    </label>
-                                    <label class="block clearfix">
-                                        <span class="block input-icon input-icon-right">
-
-                                            @Html.TextBoxFor(m => m.PurchaseDate, new { @class = "form-control input-medium date-picker", placeholder = "购买日期" })
-                                        </span>
-                                    </label>
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
 
@@ -86,7 +55,7 @@
                                     </label>
                                     <label class="block clearfix">
                                         <span class="block input-icon input-icon-right">
-                                            @*<input type="text" id="FireCar" required class="form-control" placeholder="车内消防设施情况" />*@
+
                                             <span class="block input-icon input-icon-right">
                                                 <select class="form-control" id="FireCar" name="FireCar">
                                                     <option value="0">--车内消防设施情况--</option>
@@ -131,7 +100,7 @@
                                     <span class="input-group-btn">
                                         <button type="submit" class="btn btn-purple btn-sm">
                                             <span class="ace-icon fa fa-plus icon-on-right bigger-110"></span>
-                                            添加车辆信息
+                                            保存检测信息
                                         </button>
                                     </span>
                                 </div>
@@ -158,12 +127,13 @@
                                 <th>车辆类型</th>
                                 <th>车牌号</th>
                                 <th>出厂日期</th>
-                                <th>购买日期</th>
-                                <th>操作</th>
+                                <th>下次车检日期</th>
+
                             </tr>
                         </thead>
                         <tbody>
                             @{
+                                //显示当前保养车辆的信息
                                 foreach (var item in vehicleInfoList)
                                 {
                                     <tr>
@@ -173,11 +143,7 @@
                                         <td>@item.Plate</td>
                                         <td>@item.DeliveryTtime</td>
                                         <td>@item.PurchaseDate</td>
-                                        <td>
-                                            @Ajax.ActionLink("删除", "Delete", new { id = item.Id }, new AjaxOptions { Confirm = "确认删除?", OnSuccess = "deleteElement", HttpMethod = "POST" })
-                                            @*@Html.ActionLink("检测", "Tenance",new{ vehilceId=item.Id} )*@
-                                            <a href="@Url.Action("Tenance", "VehicleInfo", new { plate = item.Plate })">检测</a>
-                                        </td>
+
                                     </tr>
                                 }
                             }
@@ -189,33 +155,3 @@
     </div>
 
 </div>
-@section tailScript{
-    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
-    <script type="text/javascript">
-        function deleteElement(ret) {
-            alert("删除成功");
-            window.location.reload();
-        }
-
-        $(function () {
-            $('#DeliveryTtime').datepicker({
-                autoclose: true,
-                todayHighlight: true,
-                format: 'yyyy-mm-dd'
-            })
-                .next().on(ace.click_event, function () {
-                    $(this).prev().focus();
-                });
-
-            $('#PurchaseDate').datepicker({
-                autoclose: true,
-                todayHighlight: true,
-                format: 'yyyy-mm-dd'
-            })
-                .next().on(ace.click_event, function () {
-                    $(this).prev().focus();
-                });
-        });
-
-    </script>
-}

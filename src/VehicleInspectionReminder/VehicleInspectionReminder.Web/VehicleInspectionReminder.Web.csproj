@@ -200,6 +200,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\UserProfileActionFilter.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -492,6 +493,9 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\VehicleType\Index.cshtml" />
     <Content Include="Views\VehicleInfo\InsertNew.cshtml" />
+    <Content Include="Views\Home\CarOwnerList.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
+    <Content Include="Views\VehicleInfo\Tenance.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
