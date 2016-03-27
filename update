@@ -1,0 +1,65 @@
+[33mcommit 2af02b28cae4579fdda473347569a3a03ba43f87[m
+Author: anhuisunfei <1195255889@qq.com>
+Date:   Sun Mar 20 14:20:33 2016 +0800
+
+    update brand Manage
+
+[33mcommit bd6e66d974200eab00fc7bd0d50d8773765f5cd8[m
+Author: anhuisunfei <1195255889@qq.com>
+Date:   Sat Mar 19 21:13:07 2016 +0800
+
+    add brand manage
+
+[33mcommit 25a81c22b3e7febe72ebf3ed48af4c89279b12cb[m
+Author: anhuisunfei <1195255889@qq.com>
+Date:   Sat Mar 19 19:09:50 2016 +0800
+
+    add register
+
+[33mcommit 7b75f037efd5d33589777f13561d2aa1baea90f4[m
+Author: anhuisunfei <1195255889@qq.com>
+Date:   Sat Mar 19 13:47:53 2016 +0800
+
+    modify db config
+
+[33mcommit ebf6c187c716fe135d2dae5f2767d1000fc99f34[m
+Author: unknown <sunf@sunf.cbichina.com>
+Date:   Wed Mar 16 17:03:04 2016 +0800
+
+    add example
+
+[33mcommit 88c2999b045c8e9f01348f55c9d99117088a7005[m
+Author: unknown <sunf@sunf.cbichina.com>
+Date:   Wed Mar 16 16:36:35 2016 +0800
+
+    first configuration database mapping
+
+[33mcommit 29a810eb7a4db8ed1f6c6cdd30236dbdc1b1a713[m
+Author: unknown <sunf@sunf.cbichina.com>
+Date:   Wed Mar 9 16:59:13 2016 +0800
+
+    update gitingore
+
+[33mcommit d2455c2b7dbe666d77586cca68d7f3098869339a[m
+Author: unknown <sunf@sunf.cbichina.com>
+Date:   Wed Mar 9 16:33:38 2016 +0800
+
+    add user role
+
+[33mcommit 0d64e04d82818419bd78e43bfb236077ecbb8c6c[m
+Author: unknown <sunf@sunf.cbichina.com>
+Date:   Wed Mar 9 15:36:00 2016 +0800
+
+    add readme
+
+[33mcommit 2de50ebb6c94ed711217e345f715d3bba1170a5f[m
+Author: unknown <sunf@sunf.cbichina.com>
+Date:   Wed Mar 9 15:33:55 2016 +0800
+
+    add doc
+
+[33mcommit 4ea8ed48c3be625b7c8151a54d16e3c500c6a09e[m
+Author: unknown <sunf@sunf.cbichina.com>
+Date:   Wed Mar 9 15:29:32 2016 +0800
+
+    first commit

@@ -64,6 +64,11 @@ namespace VehicleInspectionReminder.Model
 		/// </summary>
 		public DateTime? LastInspectionTime { get; set; }
 
+        /// <summary>
+        /// 下一次车检日期
+        /// </summary>
+        public DateTime? NextInspectionTime { get; set; }
+
 		/// <summary>
 		/// 车主信息
 		/// </summary>

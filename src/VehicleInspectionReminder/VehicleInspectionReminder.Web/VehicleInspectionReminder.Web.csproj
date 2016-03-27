@@ -203,6 +203,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BrandController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\VehicleInfoController.cs" />
     <Compile Include="Controllers\VehicleTypeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -490,6 +491,7 @@
     <Content Include="Views\Brand\Index.cshtml" />
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\VehicleType\Index.cshtml" />
+    <Content Include="Views\VehicleInfo\InsertNew.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

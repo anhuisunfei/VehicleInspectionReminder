@@ -33,6 +33,8 @@ namespace VehicleInspectionReminder.Model
 
 		public int VehicleInfoId { get; set; }
 
+        public string Email { get; set; }
+
 		/// <summary>
 		/// 车辆信息
 		/// </summary>

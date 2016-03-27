@@ -1,0 +1,186 @@
+﻿@model VehicleInspectionReminder.Web.Models.VehicleInfoModel
+@{
+    ViewBag.Title = "新车登记";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var vehicleInfoList = ViewBag.List as IEnumerable<VehicleInspectionReminder.Model.VehicleInfo>;
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="widget-box">
+            <div class="widget-header widget-header-small">
+                <h5 class="widget-title lighter">新增车辆信息</h5>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    <form class="form-search" action="@Url.Action("AddVehicleInfo")" method="post">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-8">
+                                @if (!string.IsNullOrWhiteSpace(ViewBag.Message as string))
+                                {
+                                    <div class="alert alert-danger">
+                                        <button type="button" class="close" data-dismiss="alert">
+                                            <i class="ace-icon fa fa-times"></i>
+                                        </button>
+                                        @ViewBag.Message
+                                        <br>
+                                    </div>
+                                }
+                                <fieldset>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" required class="form-control" id="BrandId" placeholder="车辆品牌" />*@
+                                            @*@Html.TextBoxFor(m => m.BrandId, new { @class = "form-control", placeholder = "车辆品牌" })*@
+                                            @Html.DropDownListFor(m => m.BrandId, ViewBag.brandList as List<SelectListItem>, new { @class = "form-control" })
+                                        </span>
+                                    </label>
+
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*@Html.TextBoxFor(m => m.VehicleTypeId, new { @class = "form-control", placeholder = "车辆类型" })*@
+                                            @Html.DropDownListFor(m => m.VehicleTypeId,ViewBag.typeList as List<SelectListItem>,new { @class="form-control"})
+                                            @*@Html.DropDownList("VehicleType", ViewData["VehicleTypeList"] as SelectList, "--请选择车辆类型--")*@
+                                        </span>
+                                    </label>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" id="Plate" required class="form-control" placeholder="车牌号" />*@
+                                            @Html.TextBoxFor(m => m.Plate, new { @class = "form-control", placeholder = "车牌号" })
+                                        </span>
+                                    </label>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" id="DeliveryTtime" required class="form-control" placeholder="出厂时间" />*@
+                                            @Html.TextBoxFor(m => m.DeliveryTtime, new { @class = "form-control", placeholder = "出厂时间" })
+                                        </span>
+                                    </label>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" id="PurchaseDate" required class="form-control" placeholder="购买日期" />*@
+                                            @Html.TextBoxFor(m => m.PurchaseDate, new { @class = "form-control" , placeholder="购买日期" })
+                                        </span>
+                                    </label>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" id="InsuranceStatus" required class="form-control" placeholder="投保状态" />*@
+                                            <span class="block input-icon input-icon-right">
+                                                <select class="form-control" id="selRoles">
+                                                    <option value="0">--请选择投保状态--</option>
+                                                    <option value="1">未投保</option>
+                                                    <option value="2">已投保</option>
+                                                </select>
+                                            </span>
+                                        </span>
+                                    </label>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" id="FireCar" required class="form-control" placeholder="车内消防设施情况" />*@
+                                            <span class="block input-icon input-icon-right">
+                                                <select class="form-control" id="selRoles">
+                                                    <option value="0">--车内消防设施情况--</option>
+                                                    <option value="1">良好</option>
+                                                    <option value="2">一般</option>
+                                                    <option value="3">损毁</option>
+                                                </select>
+                                            </span>
+
+                                        </span>
+                                    </label>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" id="LightCondition" required class="form-control" placeholder="照明设施情况" />*@
+                                            <span class="block input-icon input-icon-right">
+                                                <select class="form-control" id="selRoles">
+                                                    <option value="0">--照明设施情况--</option>
+                                                    <option value="1">良好</option>
+                                                    <option value="2">一般</option>
+                                                    <option value="3">损毁</option>
+                                                </select>
+                                            </span>
+                                        </span>
+                                    </label>
+                                    <label class="block clearfix">
+                                        <span class="block input-icon input-icon-right">
+                                            @*<input type="text" id="PlateIsIntact" required class="form-control" placeholder="车牌是否完好" />*@
+                                            <span class="block input-icon input-icon-right">
+                                                <select class="form-control" id="selRoles">
+                                                    <option value="0">--车牌是否完好--</option>
+                                                    <option value="1">完好</option>
+                                                    <option value="2">损毁</option>
+                                                </select>
+                                            </span>
+                                        </span>
+                                    </label>
+
+                                    <div class="space-24"></div>
+
+
+                                </fieldset>
+                                <div class="input-group">
+
+                                    <span class="input-group-btn">
+                                        <button type="submit" class="btn btn-purple btn-sm">
+                                            <span class="ace-icon fa fa-plus icon-on-right bigger-110"></span>
+                                            添加车辆信息
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="widget-box">
+            <div class="widget-header widget-header-small">
+                <h5 class="widget-title lighter">车辆信息列表</h5>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    <table class="table-bordered table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>名称</th>
+                                <th>车辆类型</th>
+                                <th>车牌号</th>
+                                <th>出厂日期</th>
+                                <th>购买日期</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                foreach (var item in vehicleInfoList)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.VehicleType.VehicleTypeName</td>
+                                        <td>@item.Plate</td>
+                                        <td>@item.DeliveryTtime</td>
+                                        <td>@item.PurchaseDate</td>
+                                        <td>@Ajax.ActionLink("删除", "Delete", new { id = item.Id }, new AjaxOptions { Confirm = "确认删除?", OnSuccess = "deleteElement", HttpMethod = "POST" })</td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+@section tailScript{
+    <script src="@Url.Content("~/Scripts/jquery.unobtrusive-ajax.min.js")"></script>
+    <script type="text/javascript">
+        function deleteElement(ret) {
+            alert("删除成功");
+            window.location.reload();
+        }
+    </script>
+}

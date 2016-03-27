@@ -82,12 +82,21 @@
     <Compile Include="Migrations\201603240809553_AddNotificationMessage.Designer.cs">
       <DependentUpon>201603240809553_AddNotificationMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603270254360_update vehicleInfo.cs" />
+    <Compile Include="Migrations\201603270254360_update vehicleInfo.Designer.cs">
+      <DependentUpon>201603270254360_update vehicleInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603270340060_update notification.cs" />
+    <Compile Include="Migrations\201603270340060_update notification.Designer.cs">
+      <DependentUpon>201603270340060_update notification.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\BrandRepository.cs" />
     <Compile Include="Repository\NotificationMessageRepository.cs" />
     <Compile Include="Repository\OwnerInfoRepository.cs" />
     <Compile Include="Repository\UserRepository.cs" />
+    <Compile Include="Repository\VehicleInfoRepository.cs" />
     <Compile Include="Repository\VehicleTypeRepository.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -112,6 +121,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603240809553_AddNotificationMessage.resx">
       <DependentUpon>201603240809553_AddNotificationMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270254360_update vehicleInfo.resx">
+      <DependentUpon>201603270254360_update vehicleInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603270340060_update notification.resx">
+      <DependentUpon>201603270340060_update notification.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

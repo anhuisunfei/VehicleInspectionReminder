@@ -185,3 +185,14 @@ F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspect
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.xml
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Autofac.Extras.Quartz.dll
 F:\MyCode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Autofac.Extras.Quartz.xml
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Autofac.Extras.Quartz.xml
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.pdb
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.xml
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.Core.pdb
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.Core.xml
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.pdb
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.xml
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Autofac.Extras.Quartz.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.Core.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Common.Logging.dll
+E:\mycode\VehicleInspectionReminder\src\VehicleInspectionReminder\VehicleInspectionReminder.Web\bin\Quartz.dll

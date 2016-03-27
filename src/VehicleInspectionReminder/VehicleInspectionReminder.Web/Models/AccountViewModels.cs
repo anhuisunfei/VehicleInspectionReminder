@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using VehicleInspectionReminder.Model;
 
 namespace VehicleInspectionReminder.Web.Models
 {
@@ -68,4 +70,70 @@ namespace VehicleInspectionReminder.Web.Models
 		[Required]
 		public string Roles { get; set; }
     }
+
+
+    public class VehicleInfoModel
+    {
+        [Required]
+        [Display(Name = "车辆品牌ID")]
+        public int BrandId { get; set; }
+
+        [Required]
+        [Display(Name = "车辆品牌")]
+        public Brand VehicleBrand { get; set; }
+
+        [Required]
+        [Display(Name = "车辆类型ID")]
+        public int VehicleTypeId { get; set; }
+
+        [Required]
+        [Display(Name = "车辆类型")]
+        public VehicleType VehicleType { get; set; }
+
+        [Required]
+        [Display(Name = "车牌号")]
+        public string Plate { get; set; }
+
+        [Required]
+        [Display(Name = "出厂时间")]
+        public DateTime DeliveryTtime { get; set; }
+
+        [Required]
+        [Display(Name = "购买日期")]
+        public DateTime PurchaseDate { get; set; }
+
+        [Required]
+        [Display(Name = "投保状态")]
+        public bool InsuranceStatus { get; set; }
+
+        [Required]
+        [Display(Name = "车内消防设施情况")]
+        public FireCarType FireCar { get; set; }
+
+        [Required]
+        [Display(Name = "照明设施情况")]
+        public LightConditionType LightCondition { get; set; }
+
+        [Required]
+        [Display(Name = "车牌是否完好")]
+        public PlateType PlateIsIntact { get; set; }
+
+        [Required]
+        [Display(Name = "最后一次车检时间")]
+        public DateTime? LastInspectionTime { get; set; }
+
+        [Required]
+        [Display(Name = "下一次车检日期")]
+        public DateTime? NextInspectionTime { get; set; }
+
+        [Required]
+        [Display(Name = "车主信息ID")]
+        public int OwnerId { get; set; }
+
+        [Required]
+        [Display(Name = "车主信息")]
+        public OwnerInfo Owner { get; set; }
+
+    }
+
 }

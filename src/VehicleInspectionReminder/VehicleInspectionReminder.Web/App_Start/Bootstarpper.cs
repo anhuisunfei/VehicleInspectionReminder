@@ -48,6 +48,8 @@ namespace VehicleInspectionReminder.Web.App_Start
 			builder.RegisterType<NotificationMessageService>().As<INotificationMessageService>().InstancePerLifetimeScope();
 			builder.RegisterType<OwnerInfoRepository>().As<IOwnerInfoRepository>().InstancePerLifetimeScope();
 			builder.RegisterType<OwnerInfoService>().As<IOwnerInfoService>().InstancePerLifetimeScope();
+            builder.RegisterType<VehicleInfoRepository>().As<IVehicleInfoRepository>().InstancePerLifetimeScope();
+            builder.RegisterType<VehicleInfoService>().As<IVehicleInfoService>().InstancePerLifetimeScope();
 			IContainer container = builder.Build(); 
 			
 			DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
